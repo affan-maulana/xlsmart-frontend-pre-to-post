@@ -1,7 +1,15 @@
-"use client";
+'use client';
 
-import type { PaymentMethodGroup, PaymentMethodOption } from "@/lib/types";
-import { Wallet, QrCode, CreditCard, Landmark, Banknote, FileText, ChevronDown } from "lucide-react";
+import type { PaymentMethodGroup, PaymentMethodOption } from '@/lib/types';
+import {
+  Wallet,
+  QrCode,
+  CreditCard,
+  Landmark,
+  Banknote,
+  FileText,
+  ChevronDown,
+} from 'lucide-react';
 
 interface PaymentMethodSelectorProps {
   groups: PaymentMethodGroup[];
@@ -13,14 +21,14 @@ interface PaymentMethodSelectorProps {
 }
 
 function formatRupiah(amount: number) {
-  return `Rp ${amount.toLocaleString("id-ID")}`;
+  return `Rp ${amount.toLocaleString('id-ID')}`;
 }
 
 const groupIcon: Record<string, typeof Wallet> = {
-  "Dompet Digital": Wallet,
-  "QRIS (Scan QR)": QrCode,
-  "Kartu Kredit": CreditCard,
-  "Transfer Bank (Virtual Account)": Landmark,
+  'Dompet Digital': Wallet,
+  'QRIS (Scan QR)': QrCode,
+  'Kartu Kredit': CreditCard,
+  'Transfer Bank (Virtual Account)': Landmark,
   Tunai: Banknote,
   Invoice: FileText,
 };
@@ -54,16 +62,16 @@ export function PaymentMethodSelector({
                         onClick={() => onSelect(method)}
                         className={`flex items-center gap-3 rounded-xl border-2 px-4 py-3.5 text-left transition-colors ${
                           isSelected
-                            ? "border-transparent"
-                            : "border-black/10 hover:border-brand-indigo/40"
+                            ? 'border-transparent'
+                            : 'border-black/10 hover:border-brand-indigo/40'
                         }`}
                         style={
                           isSelected
                             ? {
                                 backgroundImage:
-                                  "linear-gradient(white, white), linear-gradient(0deg, #1E22AA 0%, #E5005A 100%)",
-                                backgroundOrigin: "border-box",
-                                backgroundClip: "padding-box, border-box",
+                                  'linear-gradient(white, white), linear-gradient(0deg, #1E22AA 0%, #E5005A 100%)',
+                                backgroundOrigin: 'border-box',
+                                backgroundClip: 'padding-box, border-box',
                               }
                             : undefined
                         }
@@ -87,7 +95,7 @@ export function PaymentMethodSelector({
                             {method.caption ??
                               (method.adminFee > 0
                                 ? `Admin ${formatRupiah(method.adminFee)}`
-                                : "Tanpa biaya admin")}
+                                : 'Tanpa biaya admin')}
                           </span>
                         </span>
                       </button>
@@ -111,9 +119,7 @@ export function PaymentMethodSelector({
             Total Tagihan
             <ChevronDown size={16} />
           </button>
-          <p className="mt-1 text-xl font-extrabold text-ink-900">
-            {formatRupiah(totalTagihan)}
-          </p>
+          <p className="mt-1 text-xl font-extrabold text-ink-900">{formatRupiah(totalTagihan)}</p>
         </div>
         <div className="border-l border-black/10 px-5 py-4 sm:px-6">
           <p className="text-sm text-ink-700/50">Total Item</p>

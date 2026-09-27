@@ -1,18 +1,18 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { Header, SideNavigation } from "@company/shared-ui";
-import "./globals.css";
-import { agent } from "@/lib/mockData";
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import { Header, SideNavigation } from '@company/shared-ui';
+import './globals.css';
+import { agent } from '@/lib/mockData';
 
 const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: "XLSMART | Profil Pelanggan",
-  description: "Customer Relationship Representative dashboard - XLSMART",
+  title: 'XLSMART | Profil Pelanggan',
+  description: 'Customer Relationship Representative dashboard - XLSMART',
 };
 
 export default function RootLayout({

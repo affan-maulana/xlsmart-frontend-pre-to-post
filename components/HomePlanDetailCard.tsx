@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { ChevronDown, Plus, Eye, AlertCircle, Clock } from "lucide-react";
-import { Card } from "@/components/ui/Card";
-import type { HomePlanDetail } from "@/lib/types";
+import { useState } from 'react';
+import { ChevronDown, Plus, Eye, AlertCircle, Clock } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import type { HomePlanDetail } from '@/lib/types';
 
 interface HomePlanDetailCardProps {
   plan: HomePlanDetail;
@@ -50,7 +50,7 @@ export function HomePlanDetailCard({ plan }: HomePlanDetailCardProps) {
                 <div className="pr-8">
                   <p className="text-sm text-ink-700/60">Billing Open</p>
                   <p className="mt-1 text-xl font-bold text-ink-900">
-                    Rp {plan.billingOpen.toLocaleString("id-ID")}
+                    Rp {plan.billingOpen.toLocaleString('id-ID')}
                   </p>
                 </div>
                 <div className="pl-8">
@@ -96,7 +96,7 @@ export function HomePlanDetailCard({ plan }: HomePlanDetailCardProps) {
                 <div className="flex items-center justify-between border-b border-black/5 pb-3">
                   <p className="text-sm text-ink-700/60">Last Payment Amount</p>
                   <p className="mt-1 text-sm font-bold text-ink-900">
-                    {plan.lastPaymentAmount || "-"}
+                    {plan.lastPaymentAmount || '-'}
                   </p>
                 </div>
 
@@ -119,19 +119,19 @@ export function HomePlanDetailCard({ plan }: HomePlanDetailCardProps) {
                 </div>
                 <div className="flex items-center justify-between border-b border-black/5 pb-3">
                   <p className="text-sm text-ink-700/60">Add On Aktif</p>
-                  <p className="mt-1 text-sm font-bold text-ink-900">{plan.addOnActive || "-"}</p>
+                  <p className="mt-1 text-sm font-bold text-ink-900">{plan.addOnActive || '-'}</p>
                 </div>
 
                 <div className="flex items-center justify-between border-b border-black/5 pb-3">
                   <p className="text-sm text-ink-700/60">Customer Type</p>
                   <p className="mt-1 text-sm font-bold text-ink-900">
-                    {plan.customerTypeDetail || "-"}
+                    {plan.customerTypeDetail || '-'}
                   </p>
                 </div>
                 <div className="flex items-center justify-between border-b border-black/5 pb-3">
                   <p className="text-sm text-ink-700/60">Incident Status</p>
                   <p className="mt-1 text-sm font-bold text-ink-900">
-                    {plan.incidentStatus || "-"}
+                    {plan.incidentStatus || '-'}
                   </p>
                 </div>
 
@@ -145,7 +145,7 @@ export function HomePlanDetailCard({ plan }: HomePlanDetailCardProps) {
                 <div className="flex items-center justify-between border-b border-black/5 pb-3">
                   <p className="text-sm text-ink-700/60">Credit Adjustment</p>
                   <p className="mt-1 text-sm font-bold text-ink-900">
-                    {plan.creditAdjustment || "-"}
+                    {plan.creditAdjustment || '-'}
                   </p>
                 </div>
 
@@ -166,7 +166,7 @@ export function HomePlanDetailCard({ plan }: HomePlanDetailCardProps) {
           <div className="flex items-center gap-4">
             <span className="flex items-center gap-1.5 text-sm text-amber-600">
               <AlertCircle size={14} />
-              Outstanding : Rp{plan.outstanding.toLocaleString("id-ID")}
+              Outstanding : Rp{plan.outstanding.toLocaleString('id-ID')}
             </span>
             <span className="flex items-center gap-1.5 text-sm text-amber-600">
               <Clock size={14} />
@@ -180,7 +180,7 @@ export function HomePlanDetailCard({ plan }: HomePlanDetailCardProps) {
               Info Selengkapnya
               <ChevronDown
                 size={16}
-                className={`transition-transform ${expanded ? "rotate-180" : ""}`}
+                className={`transition-transform ${expanded ? 'rotate-180' : ''}`}
               />
             </button>
           </div>

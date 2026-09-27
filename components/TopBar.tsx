@@ -1,6 +1,6 @@
-import Image from "next/image";
-import { MapPin, Bell } from "lucide-react";
-import type { AgentInfo } from "@/lib/types";
+import Image from 'next/image';
+import { MapPin, Bell } from 'lucide-react';
+import type { AgentInfo } from '@/lib/types';
 
 interface TopBarProps {
   agent: AgentInfo;
@@ -14,9 +14,7 @@ export function TopBar({ agent }: TopBarProps) {
         <div className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-gradient">
           <span className="text-sm font-bold text-white">X</span>
         </div>
-        <span className="text-xl font-extrabold tracking-tight text-ink-900">
-          XLSMART
-        </span>
+        <span className="text-xl font-extrabold tracking-tight text-ink-900">XLSMART</span>
       </div>
 
       <div className="flex items-center gap-5">

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { X } from "lucide-react";
-import type { PaymentMethodOption } from "@/lib/types";
+import { useState } from 'react';
+import { X } from 'lucide-react';
+import type { PaymentMethodOption } from '@/lib/types';
 
 interface PaymentDetailModalProps {
   isOpen: boolean;
@@ -16,14 +16,14 @@ export function PaymentDetailModal({
   isOpen,
   onClose,
   method,
-  defaultPhoneNumber = "",
+  defaultPhoneNumber = '',
   onConfirm,
 }: PaymentDetailModalProps) {
   const [phoneNumber, setPhoneNumber] = useState(defaultPhoneNumber);
 
   if (!isOpen || !method) return null;
 
-  const isEwallet = method.type === "ewallet";
+  const isEwallet = method.type === 'ewallet';
   const canSubmit = !isEwallet || phoneNumber.trim().length > 0;
 
   function handleSubmit() {
@@ -46,9 +46,7 @@ export function PaymentDetailModal({
         </div>
 
         <div className="px-6 pb-6">
-          <h3 className="text-lg font-extrabold text-ink-900">
-            Bayar Dengan {method.name}
-          </h3>
+          <h3 className="text-lg font-extrabold text-ink-900">Bayar Dengan {method.name}</h3>
 
           {isEwallet && (
             <>
@@ -64,7 +62,7 @@ export function PaymentDetailModal({
                 <span className="h-5 w-px bg-black/15" />
                 <input
                   value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, ""))}
+                  onChange={(e) => setPhoneNumber(e.target.value.replace(/\D/g, ''))}
                   placeholder="817282319920022"
                   inputMode="numeric"
                   className="ml-3 flex-1 text-sm text-ink-900 outline-none placeholder:text-ink-700/40"
@@ -73,25 +71,25 @@ export function PaymentDetailModal({
             </>
           )}
 
-          {method.type === "virtual_account" && (
+          {method.type === 'virtual_account' && (
             <p className="mt-2 text-sm text-ink-700/60">
               Nomor Virtual Account akan dibuatkan setelah kamu menekan tombol Bayar.
             </p>
           )}
 
-          {method.type === "qris" && (
+          {method.type === 'qris' && (
             <p className="mt-2 text-sm text-ink-700/60">
               Kode QR akan ditampilkan setelah kamu menekan tombol Bayar.
             </p>
           )}
 
-          {method.type === "credit_card" && (
+          {method.type === 'credit_card' && (
             <p className="mt-2 text-sm text-ink-700/60">
               Kamu akan diarahkan ke halaman input kartu kredit.
             </p>
           )}
 
-          {(method.type === "cash" || method.type === "invoice") && (
+          {(method.type === 'cash' || method.type === 'invoice') && (
             <p className="mt-2 text-sm text-ink-700/60">
               Konfirmasi untuk melanjutkan proses {method.name.toLowerCase()}.
             </p>

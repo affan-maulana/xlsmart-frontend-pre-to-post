@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { RefreshCw } from "lucide-react";
-import { Card } from "@/components/ui/Card";
-import { StatusPill } from "@/components/ui/StatusPill";
-import { StatusBadge } from "@/components/ui/StatusBadge";
-import type { StatusTone } from "@/lib/types";
+import { RefreshCw } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import { StatusPill } from '@/components/ui/StatusPill';
+import { StatusBadge } from '@/components/ui/StatusBadge';
+import type { StatusTone } from '@/lib/types';
 
 interface MetricItem {
   id: string;

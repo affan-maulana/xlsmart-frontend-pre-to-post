@@ -1,9 +1,16 @@
-export type StatusTone = "good" | "warn" | "bad";
+export type StatusTone = 'good' | 'warn' | 'bad';
 
 export interface StatusPillData {
   id: string;
   label: string;
   tone: StatusTone;
+}
+
+export interface PostpaidPackageOption {
+  id: string;
+  price: number;
+  salePrice: number;
+  image: string;
 }
 
 export interface AgentQueueInfo {
@@ -28,14 +35,14 @@ export interface CustomerProfile {
   nik: string;
   birthDate: string;
   fullName: string;
-  gender: "Laki-Laki" | "Perempuan";
-  maritalStatus: "Married" | "Single";
+  gender: 'Laki-Laki' | 'Perempuan';
+  maritalStatus: 'Married' | 'Single';
   address: string;
   isBirthdayToday: boolean;
-  religion: string;    
-  occupation: string;     
-  motherName: string;     
-  income: string;   
+  religion: string;
+  occupation: string;
+  motherName: string;
+  income: string;
 }
 
 export interface SubscriptionSummary {
@@ -65,20 +72,19 @@ export interface PendingCase {
 export interface PhoneNumber {
   id: string;
   msisdn: string;
-  provider?: "xl" | "axis" | "smartfren" | "other";
-  status?: "active" | "suspend" | "nonaktif";
+  provider?: 'xl' | 'axis' | 'smartfren' | 'other';
+  status?: 'active' | 'suspend' | 'nonaktif';
   outstanding?: boolean;
   iconOnly?: boolean;
 }
 
-
 export interface PlanDetail {
   id: string;
   planName: string;
-  planType: "Prepaid" | "Postpaid";
+  planType: 'Prepaid' | 'Postpaid';
   customerType: string;
   customerTag: string;
-  serviceStatus: "Aktif" | "Nonaktif";
+  serviceStatus: 'Aktif' | 'Nonaktif';
   activeSince: string;
   mobileBalance: number;
   averageArpu: number;
@@ -89,7 +95,7 @@ export interface PlanDetail {
   specialStatus: string | null;
   gracePeriod: string;
   deviceInfo: string;
-  firstEventDate: string; 
+  firstEventDate: string;
 }
 
 export interface ConnectivityMetric {
@@ -116,7 +122,7 @@ export interface PromoBanner {
   price: string;
   priceUnit: string;
   imageUrl: string;
-  theme: "gradient" | "dark";
+  theme: 'gradient' | 'dark';
 }
 
 export interface PostpaidPlanDetail {
@@ -126,8 +132,8 @@ export interface PostpaidPlanDetail {
   customerType: string;
   serviceStatus: string;
   activeSince: string;
-  status: "active" | "inactive";  
-  inactiveSince?: string; 
+  status: 'active' | 'inactive';
+  inactiveSince?: string;
   mobileBalance: number;
   averageArpu: number;
   billingOpen: number;
@@ -157,7 +163,7 @@ export interface PostpaidPlanDetail {
   email: string;
   outstanding: number;
 }
- 
+
 export interface HomePlanDetail {
   planName: string;
   customerType: string;
@@ -188,8 +194,8 @@ export interface ForeignCustomerProfile {
   passportNumber: string;
   birthDate: string;
   fullName: string;
-  gender: "Laki-Laki" | "Perempuan";
-  maritalStatus: "Married" | "Single";
+  gender: 'Laki-Laki' | 'Perempuan';
+  maritalStatus: 'Married' | 'Single';
   nationality: string;
   address: string;
   isBirthdayToday: boolean;
@@ -209,19 +215,19 @@ export interface DenomOption {
   /** Extra perk shown next to the bonus days, e.g. "Bonus 500MB". */
   bonusLabel?: string;
 }
- 
+
 /** Small "Servis Plan" summary box shown above the denom picker. */
 export interface IsiPulsaPlanSummary {
   planName: string;
   planType: string;
   mobileBalance: number;
 }
- 
+
 export interface MandatoryInfoItem {
   id: string;
   title: string;
 }
- 
+
 export interface PlaybookInteraction {
   id: string;
   question: string;
@@ -230,7 +236,7 @@ export interface PlaybookInteraction {
   note?: string;
   checked?: boolean;
 }
- 
+
 export interface ServicePlaybook {
   title: string;
   interactions: PlaybookInteraction[];
@@ -238,22 +244,41 @@ export interface ServicePlaybook {
   stageLabel: string;
 }
 
-
 export interface PaymentMethodOption {
   id: string;
   name: string;
   adminFee: number;
   caption?: string;
   iconSrc?: string;
-  type: PaymentMethodType; 
+  type: PaymentMethodType;
 }
- 
+
 export interface PaymentMethodGroup {
   id: string;
   title: string;
   methods: PaymentMethodOption[];
 }
- 
+
+export interface PostpaidPackage {
+  id: string;
+  name: string;
+  summary: string;
+  duration: string;
+  detail: PostpaidPackageDetail;
+  salePrice: number;
+  price: number;
+  image: string;
+  recommended?: boolean;
+}
+
+export interface PostpaidPackageDetail {
+  id: string;
+  quota: string;
+  call: string;
+  callToAll: string;
+  smsToAll: string;
+}
+
 export interface PaketOption {
   id: string;
   provider: string;
@@ -278,7 +303,7 @@ export interface PaketOption {
   recommended?: boolean;
 }
 
-export type PaketCategory = "semua" | "flexmini" | "flexmax";
+export type PaketCategory = 'semua' | 'flexmini' | 'flexmax';
 
 export interface PaketFilterState {
   search: string;
@@ -300,12 +325,7 @@ export interface BillingDetail {
 }
 
 export type PaymentMethodType =
-  | "ewallet"
-  | "qris"
-  | "credit_card"
-  | "virtual_account"
-  | "cash"
-  | "invoice";
+  'ewallet' | 'qris' | 'credit_card' | 'virtual_account' | 'cash' | 'invoice';
 
 export interface PendingPaymentInfo {
   orderId: string;
@@ -320,12 +340,7 @@ export interface PendingPaymentInfo {
 }
 
 export type PaymentStatusVariant =
-  | "ewallet"
-  | "virtual_account"
-  | "credit_card"
-  | "qris"
-  | "cash"
-  | "invoice";
+  'ewallet' | 'virtual_account' | 'credit_card' | 'qris' | 'cash' | 'invoice';
 
 export interface OrderSummaryField {
   label: string;
@@ -342,6 +357,6 @@ export interface CreditCardStatusStep {
   id: string;
   label: string;
   description: string;
-  status: "done" | "pending";
+  status: 'done' | 'pending';
   actionLabel?: string;
 }

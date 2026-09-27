@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { X, Check } from "lucide-react";
+import { useState } from 'react';
+import { X, Check } from 'lucide-react';
 
-const DELIVERY_OPTIONS = ["Pos", "Email"] as const;
+const DELIVERY_OPTIONS = ['Pos', 'Email'] as const;
 type DeliveryMethod = (typeof DELIVERY_OPTIONS)[number];
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -32,9 +32,9 @@ export function EditBillingDeliveryModal({
   onClose,
   onSuccess,
 }: EditBillingDeliveryModalProps) {
-  const [step, setStep] = useState<"edit" | "success">("edit");
+  const [step, setStep] = useState<'edit' | 'success'>('edit');
   const [selectedMethod, setSelectedMethod] = useState<DeliveryMethod>(
-    currentDelivery === "Pos" ? "Pos" : "Email"
+    currentDelivery === 'Pos' ? 'Pos' : 'Email'
   );
   const [emailValue, setEmailValue] = useState(email);
   const [emailTouched, setEmailTouched] = useState(false);
@@ -42,13 +42,13 @@ export function EditBillingDeliveryModal({
   const [confirmedEmail, setConfirmedEmail] = useState(email);
 
   const isEmailValid = EMAIL_PATTERN.test(emailValue.trim());
-  const showEmailError = selectedMethod === "Email" && emailTouched && !isEmailValid;
+  const showEmailError = selectedMethod === 'Email' && emailTouched && !isEmailValid;
 
   const hasChanged =
     selectedMethod !== currentDelivery ||
-    (selectedMethod === "Email" && emailValue.trim() !== email.trim());
+    (selectedMethod === 'Email' && emailValue.trim() !== email.trim());
 
-  const canSubmit = hasChanged && (selectedMethod !== "Email" || isEmailValid);
+  const canSubmit = hasChanged && (selectedMethod !== 'Email' || isEmailValid);
 
   function handleUpdate() {
     if (!canSubmit) {
@@ -57,14 +57,14 @@ export function EditBillingDeliveryModal({
     }
     setConfirmedMethod(selectedMethod);
     setConfirmedEmail(emailValue.trim());
-    setStep("success");
+    setStep('success');
   }
 
   function handleFinish() {
-    onSuccess(confirmedMethod, confirmedMethod === "Email" ? confirmedEmail : undefined);
+    onSuccess(confirmedMethod, confirmedMethod === 'Email' ? confirmedEmail : undefined);
   }
 
-  if (step === "success") {
+  if (step === 'success') {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
         <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
@@ -92,14 +92,14 @@ export function EditBillingDeliveryModal({
               Metode Pengiriman Tagihan Berhasil diupdate
             </p>
             <p className="mt-1 text-sm text-ink-700/60">
-              {confirmedMethod === "Email" ? (
+              {confirmedMethod === 'Email' ? (
                 <>
-                  Metode Pengiriman Tagihan berhasil diupdate menjadi email{" "}
+                  Metode Pengiriman Tagihan berhasil diupdate menjadi email{' '}
                   <span className="font-semibold text-ink-900">{confirmedEmail}</span>
                 </>
               ) : (
                 <>
-                  Metode Pengiriman Tagihan berhasil diupdate menjadi{" "}
+                  Metode Pengiriman Tagihan berhasil diupdate menjadi{' '}
                   <span className="font-semibold text-ink-900">Pos</span>
                 </>
               )}
@@ -164,8 +164,8 @@ export function EditBillingDeliveryModal({
                   onClick={() => setSelectedMethod(option)}
                   className={`rounded-lg border-2 py-3 text-sm font-semibold transition-colors ${
                     isSelected
-                      ? "border-brand-indigo bg-brand-indigo/5 text-ink-900"
-                      : "border-black/10 text-ink-900 hover:border-black/20"
+                      ? 'border-brand-indigo bg-brand-indigo/5 text-ink-900'
+                      : 'border-black/10 text-ink-900 hover:border-black/20'
                   }`}
                 >
                   {option}
@@ -175,7 +175,7 @@ export function EditBillingDeliveryModal({
           </div>
         </div>
 
-        {selectedMethod === "Email" && (
+        {selectedMethod === 'Email' && (
           <div className="mt-5">
             <p className="mb-2 text-sm font-semibold text-ink-900">
               Email Pelanggan<span className="text-rose-500">*</span>
@@ -189,8 +189,8 @@ export function EditBillingDeliveryModal({
               aria-invalid={showEmailError}
               className={`w-full rounded-lg border px-3 py-2.5 text-sm font-semibold text-ink-900 focus:outline-none ${
                 showEmailError
-                  ? "border-rose-400 focus:border-rose-400"
-                  : "border-black/10 focus:border-brand-indigo"
+                  ? 'border-rose-400 focus:border-rose-400'
+                  : 'border-black/10 focus:border-brand-indigo'
               }`}
             />
             {showEmailError && (

@@ -1,24 +1,21 @@
-import Image from "next/image";
-import type { StatusTone } from "@/lib/types";
+import Image from 'next/image';
+import type { StatusTone } from '@/lib/types';
 
-const toneStyles: Record<
-  StatusTone,
-  { text: string; bg: string; icon: string }
-> = {
+const toneStyles: Record<StatusTone, { text: string; bg: string; icon: string }> = {
   good: {
-    text: "text-status-good",
-    bg: "bg-status-goodBg",
-    icon: "/icons/broadcastinggreen.svg",
+    text: 'text-status-good',
+    bg: 'bg-status-goodBg',
+    icon: '/icons/broadcastinggreen.svg',
   },
   warn: {
-    text: "text-status-warn",
-    bg: "bg-status-warnBg",
-    icon: "/icons/broadcastRed.svg",
+    text: 'text-status-warn',
+    bg: 'bg-status-warnBg',
+    icon: '/icons/broadcastRed.svg',
   },
   bad: {
-    text: "text-status-bad",
-    bg: "bg-status-badBg",
-    icon: "/icons/broadcastRed.svg",
+    text: 'text-status-bad',
+    bg: 'bg-status-badBg',
+    icon: '/icons/broadcastRed.svg',
   },
 };
 

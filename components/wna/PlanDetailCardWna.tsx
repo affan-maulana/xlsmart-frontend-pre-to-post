@@ -1,16 +1,16 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { ChevronDown, Plus, Pencil } from "lucide-react";
-import { Card } from "@/components/ui/Card";
-import type { PlanDetail } from "@/lib/types";
+import { useState } from 'react';
+import { ChevronDown, Plus, Pencil } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import type { PlanDetail } from '@/lib/types';
 
 interface PlanDetailCardWnaProps {
   plan: PlanDetail;
 }
 
 function formatRupiah(amount: number) {
-  return amount.toLocaleString("id-ID");
+  return amount.toLocaleString('id-ID');
 }
 
 /** "Detail Nomor Pelanggan" card: plan, status, balance, ARPU and email. */
@@ -67,7 +67,6 @@ export function PlanDetailCardWna({ plan }: PlanDetailCardWnaProps) {
           </div>
         </div>
 
-      
         {expanded && (
           <div className="px-5 py-5 sm:px-6">
             <p className="mb-4 text-sm font-semibold text-ink-700/60">Segmentasi</p>
@@ -87,9 +86,7 @@ export function PlanDetailCardWna({ plan }: PlanDetailCardWnaProps) {
               </div>
               <div className="flex items-center justify-between border-b border-black/5 pb-3">
                 <span className="text-sm text-ink-700/60">Special Status</span>
-                <span className="text-sm font-bold text-ink-900">
-                  {plan.specialStatus || "-"}
-                </span>
+                <span className="text-sm font-bold text-ink-900">{plan.specialStatus || '-'}</span>
               </div>
 
               <div className="flex items-center justify-between border-b border-black/5 pb-3">
@@ -126,7 +123,7 @@ export function PlanDetailCardWna({ plan }: PlanDetailCardWnaProps) {
             Info Selengkapnya
             <ChevronDown
               size={16}
-              className={`transition-transform ${expanded ? "rotate-180" : ""}`}
+              className={`transition-transform ${expanded ? 'rotate-180' : ''}`}
             />
           </button>
         </div>

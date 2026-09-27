@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { X } from "lucide-react";
-import type { BillingLineItem } from "@/lib/types";
+import { X } from 'lucide-react';
+import type { BillingLineItem } from '@/lib/types';
 
 interface BillingDetailModalProps {
   isOpen: boolean;
@@ -11,7 +11,7 @@ interface BillingDetailModalProps {
 }
 
 function formatRupiah(amount: number) {
-  return `Rp ${amount.toLocaleString("id-ID")}`;
+  return `Rp ${amount.toLocaleString('id-ID')}`;
 }
 
 export function BillingDetailModal({ isOpen, onClose, items, adminFee }: BillingDetailModalProps) {

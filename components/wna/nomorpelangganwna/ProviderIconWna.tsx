@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Smartphone } from "lucide-react";
-import type { PhoneNumber } from "@/lib/types";
+import { useState } from 'react';
+import { Smartphone } from 'lucide-react';
+import type { PhoneNumber } from '@/lib/types';
 
 type ProviderStyle = {
   iconBg: string;
@@ -10,26 +10,25 @@ type ProviderStyle = {
   label: string;
 };
 
-
 const fallbackProviderStyle: Record<string, ProviderStyle> = {
-  xl: { iconBg: "bg-brand-indigo/10", iconText: "text-brand-indigo", label: "" },
-  axis: { iconBg: "bg-black/5", iconText: "text-ink-700/60", label: "" },
-  smartfren: { iconBg: "bg-pink-50", iconText: "text-pink-600", label: "sf" },
-  other: { iconBg: "bg-purple-100", iconText: "text-purple-600", label: "" },
+  xl: { iconBg: 'bg-brand-indigo/10', iconText: 'text-brand-indigo', label: '' },
+  axis: { iconBg: 'bg-black/5', iconText: 'text-ink-700/60', label: '' },
+  smartfren: { iconBg: 'bg-pink-50', iconText: 'text-pink-600', label: 'sf' },
+  other: { iconBg: 'bg-purple-100', iconText: 'text-purple-600', label: '' },
 };
 
 export function isXlPrioritas(number: PhoneNumber) {
-  return number.provider === "xl" && number.status === "suspend" && Boolean(number.outstanding);
+  return number.provider === 'xl' && number.status === 'suspend' && Boolean(number.outstanding);
 }
 
 interface ProviderIconWnaProps {
   number: PhoneNumber;
-  size?: "sm" | "md";
+  size?: 'sm' | 'md';
 }
 
-const sizeClasses: Record<"sm" | "md", { box: string; icon: number; text: string }> = {
-  sm: { box: "h-5 w-5", icon: 12, text: "text-[10px]" },
-  md: { box: "h-7 w-7", icon: 16, text: "text-xs" },
+const sizeClasses: Record<'sm' | 'md', { box: string; icon: number; text: string }> = {
+  sm: { box: 'h-5 w-5', icon: 12, text: 'text-[10px]' },
+  md: { box: 'h-7 w-7', icon: 16, text: 'text-xs' },
 };
 
 function FallbackBadge({
@@ -38,12 +37,12 @@ function FallbackBadge({
   icon,
   text,
 }: {
-  provider?: PhoneNumber["provider"];
+  provider?: PhoneNumber['provider'];
   box: string;
   icon: number;
   text: string;
 }) {
-  const style = fallbackProviderStyle[provider ?? "other"] ?? fallbackProviderStyle.other;
+  const style = fallbackProviderStyle[provider ?? 'other'] ?? fallbackProviderStyle.other;
   return (
     <span
       className={`flex ${box} shrink-0 items-center justify-center rounded-full font-bold ${text} ${style.iconBg} ${style.iconText}`}
@@ -65,7 +64,7 @@ function ProviderLogoImg({
   src: string;
   alt: string;
   box: string;
-  provider?: PhoneNumber["provider"];
+  provider?: PhoneNumber['provider'];
   icon: number;
   text: string;
 }) {
@@ -85,16 +84,16 @@ function ProviderLogoImg({
   );
 }
 
-export function ProviderIconWna({ number, size = "sm" }: ProviderIconWnaProps) {
+export function ProviderIconWna({ number, size = 'sm' }: ProviderIconWnaProps) {
   const { provider } = number;
   const { box, icon, text } = sizeClasses[size];
 
-  if (provider === "xl") {
+  if (provider === 'xl') {
     const prioritas = isXlPrioritas(number);
     return (
       <ProviderLogoImg
-        src={prioritas ? "/icons/xlprioritas.svg" : "/icons/xllogo.svg"}
-        alt={prioritas ? "XL Prioritas" : "XL"}
+        src={prioritas ? '/icons/xlprioritas.svg' : '/icons/xllogo.svg'}
+        alt={prioritas ? 'XL Prioritas' : 'XL'}
         box={box}
         provider={provider}
         icon={icon}
@@ -103,7 +102,7 @@ export function ProviderIconWna({ number, size = "sm" }: ProviderIconWnaProps) {
     );
   }
 
-  if (provider === "smartfren") {
+  if (provider === 'smartfren') {
     return (
       <ProviderLogoImg
         src="/icons/sflogo.svg"
@@ -116,7 +115,7 @@ export function ProviderIconWna({ number, size = "sm" }: ProviderIconWnaProps) {
     );
   }
 
-  if (provider === "axis") {
+  if (provider === 'axis') {
     return (
       <ProviderLogoImg
         src="/icons/axislogo.svg"

@@ -1,27 +1,25 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ["@company/shared-ui"],
+  transpilePackages: ['@company/shared-ui'],
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "**",
+        protocol: 'https',
+        hostname: '**',
       },
     ],
   },
   turbopack: {
     rules: {
-      "*.svg": {
-        loaders: ["@svgr/webpack"],
-        as: "*.js",
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
       },
     },
   },
   webpack(config) {
-    const fileLoaderRule = config.module.rules.find((rule) =>
-      rule.test?.test?.(".svg")
-    );
+    const fileLoaderRule = config.module.rules.find((rule) => rule.test?.test?.('.svg'));
 
     if (fileLoaderRule) {
       config.module.rules.push(
@@ -34,7 +32,7 @@ const nextConfig = {
           test: /\.svg$/i,
           issuer: /\.[jt]sx?$/,
           resourceQuery: { not: /url/ }, // exclude if *.svg?url
-          use: ["@svgr/webpack"],
+          use: ['@svgr/webpack'],
         }
       );
 

@@ -1,10 +1,10 @@
-import Image from "next/image";
-import type { StatusTone } from "@/lib/types";
+import Image from 'next/image';
+import type { StatusTone } from '@/lib/types';
 
 const toneStyles: Record<StatusTone, { bg: string; icon: string }> = {
-  good: { bg: "bg-status-goodBg text-status-good", icon: "/icons/broadcastinggreen.svg" },
-  warn: { bg: "bg-status-warnBg text-status-warn", icon: "/icons/broadcastRed.svg" },
-  bad: { bg: "bg-status-badBg text-status-bad", icon: "/icons/broadcastRed.svg" },
+  good: { bg: 'bg-status-goodBg text-status-good', icon: '/icons/broadcastinggreen.svg' },
+  warn: { bg: 'bg-status-warnBg text-status-warn', icon: '/icons/broadcastRed.svg' },
+  bad: { bg: 'bg-status-badBg text-status-bad', icon: '/icons/broadcastRed.svg' },
 };
 
 interface StatusBadgeProps {

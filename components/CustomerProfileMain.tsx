@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
-import { useState, type ComponentProps } from "react";
-import { Breadcrumb } from "@/components/Breadcrumb";
-import { CustomerIdentityCard } from "@/components/CustomerIdentityCard";
-import { SubscriptionSummaryBar } from "@/components/SubscriptionSummaryBar";
-import { AlertRow } from "@/components/AlertRow";
-import { PhoneNumberList } from "@/components/nomorpelanggan/PhoneNumberList";
-import { LihatProfilLainModal } from "@/components/LihatProfilLainModal";
-import { getNumbersByNik, registeredPhoneNumbersTotal } from "@/lib/mockData";
-import type { PhoneNumber } from "@/lib/types";
+import { useState, type ComponentProps } from 'react';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { CustomerIdentityCard } from '@/components/CustomerIdentityCard';
+import { SubscriptionSummaryBar } from '@/components/SubscriptionSummaryBar';
+import { AlertRow } from '@/components/AlertRow';
+import { PhoneNumberList } from '@/components/nomorpelanggan/PhoneNumberList';
+import { LihatProfilLainModal } from '@/components/LihatProfilLainModal';
+import { getNumbersByNik, registeredPhoneNumbersTotal } from '@/lib/mockData';
+import type { PhoneNumber } from '@/lib/types';
 
 interface CustomerProfileMainProps {
-  customer: ComponentProps<typeof CustomerIdentityCard>["customer"];
-  summary: ComponentProps<typeof SubscriptionSummaryBar>["summary"];
+  customer: ComponentProps<typeof CustomerIdentityCard>['customer'];
+  summary: ComponentProps<typeof SubscriptionSummaryBar>['summary'];
   pendingCase: { message: string; actionLabel: string };
   initialNumbers: PhoneNumber[];
   /** Set to false to hide the SubscriptionSummaryBar (e.g. postpaid). Defaults to true. */
@@ -36,7 +36,7 @@ export function CustomerProfileMain({
   const [totalCount, setTotalCount] = useState(registeredPhoneNumbersTotal);
 
   function handleLookup(query: string) {
-    const digitsOnly = query.replace(/\D/g, "");
+    const digitsOnly = query.replace(/\D/g, '');
     const isNik = digitsOnly.length >= 15;
 
     if (isNik) {
@@ -46,7 +46,7 @@ export function CustomerProfileMain({
 
       // pindah pilihan ke nomor pertama dari hasil lookup baru
       const firstSelectable =
-        result.numbers.find((n) => n.status !== "suspend" && n.status !== "nonaktif") ??
+        result.numbers.find((n) => n.status !== 'suspend' && n.status !== 'nonaktif') ??
         result.numbers[0];
       if (firstSelectable) {
         onSelectNumber?.(firstSelectable);
@@ -58,7 +58,7 @@ export function CustomerProfileMain({
     <>
       <section className="bg-brand-gradient p-4 sm:p-6">
         <div className="flex items-center justify-between">
-          <Breadcrumb trail={["Home", "Profil Pelanggan"]} />
+          <Breadcrumb trail={['Home', 'Profil Pelanggan']} />
           <LihatProfilLainModal onLookup={handleLookup} />
         </div>
 

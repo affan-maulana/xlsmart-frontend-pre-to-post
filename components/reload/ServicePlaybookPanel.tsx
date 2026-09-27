@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { ChevronUp, ChevronDown, Sparkle } from "lucide-react";
-import type { ServicePlaybook } from "@/lib/types";
-import Image from "next/image";
+import { useState } from 'react';
+import { ChevronUp, ChevronDown, Sparkle } from 'lucide-react';
+import type { ServicePlaybook } from '@/lib/types';
+import Image from 'next/image';
 
 interface ServicePlaybookPanelProps {
   playbook: ServicePlaybook;
@@ -22,7 +22,7 @@ export function ServicePlaybookPanel({ playbook }: ServicePlaybookPanelProps) {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-indigo-100 bg-indigo-50/40">
+    <div className="overflow-hidden rounded-2xl border border-indigo-100 bg-[#EDEEFF]">
       <button
         type="button"
         onClick={() => setExpanded((prev) => !prev)}
@@ -41,12 +41,12 @@ export function ServicePlaybookPanel({ playbook }: ServicePlaybookPanelProps) {
 
       {expanded && (
         <>
-          <div className="px-5 border-t border-indigo-100">
+          <div className="px-5 border-t border-indigo-100 bg-white">
             {playbook.interactions.map((item, index) => (
               <div
                 key={item.id}
                 className={`flex items-start justify-between gap-3 py-3 ${
-                  index !== playbook.interactions.length - 1 ? "border-b border-indigo-100" : ""
+                  index !== playbook.interactions.length - 1 ? 'border-b border-indigo-100' : ''
                 }`}
               >
                 <div className="min-w-0">
@@ -56,7 +56,7 @@ export function ServicePlaybookPanel({ playbook }: ServicePlaybookPanelProps) {
                     A : {item.answer}
                     {item.note && (
                       <>
-                        {" "}
+                        {' '}
                         <span className="cursor-pointer underline">{item.note}</span>
                       </>
                     )}
@@ -68,8 +68,8 @@ export function ServicePlaybookPanel({ playbook }: ServicePlaybookPanelProps) {
                   aria-label={`Tandai interaksi ${index + 1} selesai`}
                   className={`mt-1 h-4 w-4 shrink-0 rounded border ${
                     checked[item.id]
-                      ? "border-brand-indigo bg-brand-indigo"
-                      : "border-ink-700/30 bg-white"
+                      ? 'border-brand-indigo bg-brand-indigo'
+                      : 'border-ink-700/30 bg-white'
                   }`}
                 />
               </div>

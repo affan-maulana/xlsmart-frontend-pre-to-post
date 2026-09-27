@@ -1,5 +1,5 @@
-import { Timer, Users, Flag } from "lucide-react";
-import type { AgentQueueInfo } from "@/lib/types";
+import { Timer, Users, Flag } from 'lucide-react';
+import type { AgentQueueInfo } from '@/lib/types';
 
 interface QueueBarProps {
   queue: AgentQueueInfo;

@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { ChevronDown, Plus, Pencil, Eye, AlertCircle, Clock, RefreshCw } from "lucide-react";
-import { Card } from "@/components/ui/Card";
-import { EditCreditLimitTypeModal } from "./EditCreditLimitTypeModal";
-import { EditCreditClassModal } from "./EditCreditClassModal";
-import { EditBillingDeliveryModal } from "./EditBillingDeliveryModal";
-import { UpdateCreditLimitModal } from "./UpdateCreditLimitModal";
-import { UpdatePPSBalanceModal } from "./UpdatePPSBalanceModal";
-import { ViewPaymentMethodModal } from "./ViewPaymentMethodModal";
-import type { PostpaidPlanDetail } from "@/lib/types";
+import { useState } from 'react';
+import { ChevronDown, Plus, Pencil, Eye, AlertCircle, Clock, RefreshCw } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
+import { EditCreditLimitTypeModal } from './EditCreditLimitTypeModal';
+import { EditCreditClassModal } from './EditCreditClassModal';
+import { EditBillingDeliveryModal } from './EditBillingDeliveryModal';
+import { UpdateCreditLimitModal } from './UpdateCreditLimitModal';
+import { UpdatePPSBalanceModal } from './UpdatePPSBalanceModal';
+import { ViewPaymentMethodModal } from './ViewPaymentMethodModal';
+import type { PostpaidPlanDetail } from '@/lib/types';
 
 interface PostpaidPlanDetailCardProps {
   plan: PostpaidPlanDetail;
@@ -17,11 +17,11 @@ interface PostpaidPlanDetailCardProps {
 }
 
 function formatRupiah(amount: number) {
-  return amount.toLocaleString("id-ID");
+  return amount.toLocaleString('id-ID');
 }
 
 export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardProps) {
-  const isInactive = plan.status === "inactive";
+  const isInactive = plan.status === 'inactive';
 
   const [expanded, setExpanded] = useState(true);
 
@@ -91,7 +91,7 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
         </div>
 
         {isInactive ? (
-           <div className="flex flex-wrap items-center justify-between gap-3 rounded-b-2xl bg-red-50 px-5 py-4 sm:px-6">
+          <div className="flex flex-wrap items-center justify-between gap-3 rounded-b-2xl bg-red-50 px-5 py-4 sm:px-6">
             <span className="flex items-center gap-2 text-sm font-semibold text-red-600">
               <AlertCircle size={16} />
               Nomor ini nonaktif sejak {plan.inactiveSince}
@@ -275,7 +275,7 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
                     <div className="flex items-center justify-between border-b border-black/5 pb-3">
                       <span className="text-sm text-ink-700/60">Special Status</span>
                       <span className="text-sm font-bold text-ink-900">
-                        {plan.specialStatus || "-"}
+                        {plan.specialStatus || '-'}
                       </span>
                     </div>
 
@@ -319,7 +319,7 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
                   Info Selengkapnya
                   <ChevronDown
                     size={16}
-                    className={`transition-transform ${expanded ? "rotate-180" : ""}`}
+                    className={`transition-transform ${expanded ? 'rotate-180' : ''}`}
                   />
                 </button>
               </div>

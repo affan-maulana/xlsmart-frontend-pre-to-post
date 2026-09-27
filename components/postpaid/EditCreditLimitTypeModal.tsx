@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { X, ArrowRight, Check } from "lucide-react";
+import { useState } from 'react';
+import { X, ArrowRight, Check } from 'lucide-react';
 
 interface EditCreditLimitTypeModalProps {
   currentType: string;
@@ -11,22 +11,21 @@ interface EditCreditLimitTypeModalProps {
 
 function getOppositeType(type: string): string {
   const normalized = type.trim().toUpperCase();
-  if (normalized === "FLT") return "FXD";
-  if (normalized === "FXD") return "FLT";
+  if (normalized === 'FLT') return 'FXD';
+  if (normalized === 'FXD') return 'FLT';
   return type;
 }
-
 
 export function EditCreditLimitTypeModal({
   currentType,
   onClose,
   onSuccess,
 }: EditCreditLimitTypeModalProps) {
-  const [step, setStep] = useState<"edit" | "success">("edit");
+  const [step, setStep] = useState<'edit' | 'success'>('edit');
   const newType = getOppositeType(currentType);
 
   function handleConfirm() {
-    setStep("success");
+    setStep('success');
   }
 
   function handleFinish() {
@@ -38,7 +37,7 @@ export function EditCreditLimitTypeModal({
       <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
         <div className="flex items-start justify-between">
           <h4 className="w-full text-center text-lg font-bold text-ink-900">
-            {step === "edit" ? "Ubah Tipe Kredit Limit" : "Tipe Kredit Limit"}
+            {step === 'edit' ? 'Ubah Tipe Kredit Limit' : 'Tipe Kredit Limit'}
           </h4>
           <button
             type="button"
@@ -50,7 +49,7 @@ export function EditCreditLimitTypeModal({
           </button>
         </div>
 
-        {step === "edit" ? (
+        {step === 'edit' ? (
           <>
             <p className="mt-4 text-base font-bold text-ink-900">
               Apakah anda yakin ingin mengubah tipe kredit limit pelanggan ke {newType}?
@@ -101,7 +100,7 @@ export function EditCreditLimitTypeModal({
                 Tipe Kredit Limit Berhasil diupdate
               </p>
               <p className="mt-1 text-sm text-ink-700/60">
-                Tipe Kredit Limit berhasil diupdate menjadi{" "}
+                Tipe Kredit Limit berhasil diupdate menjadi{' '}
                 <span className="font-semibold text-ink-900">{newType}</span>
               </p>
             </div>

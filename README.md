@@ -61,7 +61,7 @@ Gradient utama didefinisikan persis sesuai brief, sebagai Tailwind utility
 `bg-brand-gradient`:
 
 ```css
-background: linear-gradient(321.23deg, #1E22AA -27.3%, #E5005A 168.69%);
+background: linear-gradient(321.23deg, #1e22aa -27.3%, #e5005a 168.69%);
 ```
 
 Dipakai di: hero "Profil Pelanggan", logo mark, badge "Happy Birthday", dan

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Copy, Check } from "lucide-react";
-import { CountdownBadge } from "./PaymentStatusShared";
-import type { VABankTab } from "@/lib/types";
+import { useState } from 'react';
+import { Copy, Check } from 'lucide-react';
+import { CountdownBadge } from './PaymentStatusShared';
+import type { VABankTab } from '@/lib/types';
 
 interface VirtualAccountStatusCardProps {
   secondsLeft: number;
@@ -18,7 +18,7 @@ export function VirtualAccountStatusCard({
   vaNumber,
   tabs,
 }: VirtualAccountStatusCardProps) {
-  const [activeTab, setActiveTab] = useState(tabs[0]?.id ?? "");
+  const [activeTab, setActiveTab] = useState(tabs[0]?.id ?? '');
   const [copied, setCopied] = useState(false);
 
   const activeSteps = tabs.find((t) => t.id === activeTab)?.steps ?? [];
@@ -61,7 +61,7 @@ export function VirtualAccountStatusCard({
           className="flex items-center gap-1.5 text-sm font-bold text-brand-link"
         >
           {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-          {copied ? "Tersalin" : "Salin"}
+          {copied ? 'Tersalin' : 'Salin'}
         </button>
       </div>
 
@@ -75,8 +75,8 @@ export function VirtualAccountStatusCard({
             onClick={() => setActiveTab(tab.id)}
             className={`-mb-px border-b-2 pb-2 text-sm font-bold ${
               activeTab === tab.id
-                ? "border-brand-indigo text-brand-indigo"
-                : "border-transparent text-ink-700/40"
+                ? 'border-brand-indigo text-brand-indigo'
+                : 'border-transparent text-ink-700/40'
             }`}
           >
             {tab.label}

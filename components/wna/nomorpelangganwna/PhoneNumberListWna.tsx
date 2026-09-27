@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { AlertCircle, LayoutGrid } from "lucide-react";
-import type { PhoneNumber } from "@/lib/types";
-import { ProviderIconWna } from "./ProviderIconWna";
-import { AllNumbersModalWna } from "./AllNumbersModalWna";
+import { useState } from 'react';
+import { AlertCircle, LayoutGrid } from 'lucide-react';
+import type { PhoneNumber } from '@/lib/types';
+import { ProviderIconWna } from './ProviderIconWna';
+import { AllNumbersModalWna } from './AllNumbersModalWna';
 
 interface PhoneNumberListWnaProps {
   numbers: PhoneNumber[];
@@ -19,7 +19,7 @@ export function PhoneNumberListWna({
   numbers,
   totalCount,
   onViewAll,
-  customerName = "Pelanggan",
+  customerName = 'Pelanggan',
   selectedId,
   onSelect,
 }: PhoneNumberListWnaProps) {
@@ -28,7 +28,7 @@ export function PhoneNumberListWna({
 
   // fallback: kalau belum ada selectedId, pilih nomor pertama yang bukan suspend/nonaktif
   const effectiveSelectedId =
-    selectedId ?? numbers.find((n) => n.status !== "suspend" && n.status !== "nonaktif")?.id;
+    selectedId ?? numbers.find((n) => n.status !== 'suspend' && n.status !== 'nonaktif')?.id;
 
   function handleViewAll() {
     setIsAllNumbersOpen(true);
@@ -44,8 +44,8 @@ export function PhoneNumberListWna({
       <div className="mt-4 flex items-center gap-3">
         <div className="flex min-w-0 flex-1 gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {numbers.map((number) => {
-            const isSuspend = number.status === "suspend";
-            const isNonaktif = number.status === "nonaktif";
+            const isSuspend = number.status === 'suspend';
+            const isNonaktif = number.status === 'nonaktif';
             const isSelected = number.id === effectiveSelectedId;
 
             return (
@@ -54,15 +54,15 @@ export function PhoneNumberListWna({
                 type="button"
                 onClick={() => onSelect?.(number)}
                 className={`inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-pill border-2 py-2.5 text-sm font-semibold transition-colors ${
-                  number.iconOnly ? "px-2.5" : "px-4"
+                  number.iconOnly ? 'px-2.5' : 'px-4'
                 } ${
                   isSelected
-                    ? "border-brand-indigo bg-brand-indigo/5 text-brand-indigo"
+                    ? 'border-brand-indigo bg-brand-indigo/5 text-brand-indigo'
                     : isSuspend
-                    ? "border-black/10 text-ink-700/40"
-                    : isNonaktif
-                    ? "border-black/10 text-ink-700/70"
-                    : "border-black/10 text-ink-700/80 hover:border-brand-indigo/40"
+                      ? 'border-black/10 text-ink-700/40'
+                      : isNonaktif
+                        ? 'border-black/10 text-ink-700/70'
+                        : 'border-black/10 text-ink-700/80 hover:border-brand-indigo/40'
                 }`}
               >
                 <ProviderIconWna number={number} />

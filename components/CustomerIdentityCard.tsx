@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { Gift, ChevronDown } from "lucide-react";
-import type { CustomerProfile } from "@/lib/types";
+import { useState } from 'react';
+import { Gift, ChevronDown } from 'lucide-react';
+import type { CustomerProfile } from '@/lib/types';
 
 interface CustomerIdentityCardProps {
   customer: CustomerProfile;
@@ -37,7 +37,7 @@ export function CustomerIdentityCard({ customer }: CustomerIdentityCardProps) {
           <p className="text-sm font-semibold text-ink-700/70">Alamat</p>
           <p
             className={`mt-1 max-w-2xl text-sm text-ink-900 font-bold ${
-              expanded ? "" : "line-clamp-1"
+              expanded ? '' : 'line-clamp-1'
             }`}
           >
             {customer.address}
@@ -52,7 +52,7 @@ export function CustomerIdentityCard({ customer }: CustomerIdentityCardProps) {
           Detil Info
           <ChevronDown
             size={16}
-            className={`transition-transform ${expanded ? "rotate-180" : ""}`}
+            className={`transition-transform ${expanded ? 'rotate-180' : ''}`}
           />
         </button>
       </div>
@@ -61,11 +61,11 @@ export function CustomerIdentityCard({ customer }: CustomerIdentityCardProps) {
         <div className="mt-4 grid grid-cols-1 gap-x-10 gap-y-4 pt-4 sm:grid-cols-2">
           <div className="flex items-center justify-between border-b border-black/5 pb-3">
             <span className="text-sm text-ink-700/60">Agama</span>
-            <span className="text-sm font-bold text-ink-900">{customer.religion || "-"}</span>
+            <span className="text-sm font-bold text-ink-900">{customer.religion || '-'}</span>
           </div>
           <div className="flex items-center justify-between border-b border-black/5 pb-3">
             <span className="text-sm text-ink-700/60">Pekerjaan</span>
-            <span className="text-sm font-bold text-ink-900">{customer.occupation || "-"}</span>
+            <span className="text-sm font-bold text-ink-900">{customer.occupation || '-'}</span>
           </div>
 
           <div className="flex items-center justify-between border-b border-black/5 pb-3">

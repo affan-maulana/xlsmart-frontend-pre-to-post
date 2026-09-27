@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { UserRoundPlus, X } from "lucide-react";
+import { useState } from 'react';
+import { UserRoundPlus, X } from 'lucide-react';
 
 interface LihatProfilLainModalProps {
   onLookup: (query: string) => void;
@@ -9,13 +9,13 @@ interface LihatProfilLainModalProps {
 
 export function LihatProfilLainModal({ onLookup }: LihatProfilLainModalProps) {
   const [open, setOpen] = useState(false);
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
 
   function handleSubmit() {
     if (!query.trim()) return;
     onLookup(query.trim());
     setOpen(false);
-    setQuery("");
+    setQuery('');
   }
 
   return (

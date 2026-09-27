@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { formatRupiah, CountdownBadge } from "./PaymentStatusShared";
+import { formatRupiah, CountdownBadge } from './PaymentStatusShared';
 
 interface EwalletStatusCardProps {
   secondsLeft: number;
@@ -17,7 +17,7 @@ export function EwalletStatusCard({
 }: EwalletStatusCardProps) {
   const instructions = [
     `Buka aplikasi ${methodName} di HP pelanggan`,
-    "Cek notifikasi pembayaran yang baru masuk",
+    'Cek notifikasi pembayaran yang baru masuk',
     `Periksa nominal ${formatRupiah(totalTagihan)} sudah sesuai`,
     `Konfirmasi dan masukkan PIN ${methodName} untuk menyelesaikan transaksi`,
   ];

@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { X, Check, ChevronDown } from "lucide-react";
+import { useState } from 'react';
+import { X, Check, ChevronDown } from 'lucide-react';
 
-const CREDIT_CLASS_OPTIONS = ["CX 1", "CX 4", "CX 5", "NLV"];
+const CREDIT_CLASS_OPTIONS = ['CX 1', 'CX 4', 'CX 5', 'NLV'];
 
 interface EditCreditClassModalProps {
   msisdn: string;
@@ -24,7 +24,7 @@ export function EditCreditClassModal({
   onClose,
   onSuccess,
 }: EditCreditClassModalProps) {
-  const [step, setStep] = useState<"edit" | "success">("edit");
+  const [step, setStep] = useState<'edit' | 'success'>('edit');
   const [selectedClass, setSelectedClass] = useState(currentCreditClass);
   const [confirmedValue, setConfirmedValue] = useState(currentCreditClass);
 
@@ -33,14 +33,14 @@ export function EditCreditClassModal({
   function handleUpdate() {
     if (!canSubmit) return;
     setConfirmedValue(selectedClass);
-    setStep("success");
+    setStep('success');
   }
 
   function handleFinish() {
     onSuccess(confirmedValue);
   }
 
-  if (step === "success") {
+  if (step === 'success') {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
         <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
@@ -64,10 +64,9 @@ export function EditCreditClassModal({
             </div>
             <p className="mt-4 text-base font-bold text-ink-900">Credit Class Berhasil diupdate</p>
             <p className="mt-1 text-sm text-ink-700/60">
-              Credit Class berhasil diupdate menjadi{" "}
-              <span className="font-semibold text-ink-900">{confirmedValue}</span>{" "}
-              untuk pelanggan dengan nomor{" "}
-              <span className="font-semibold text-ink-900">{msisdn}</span>
+              Credit Class berhasil diupdate menjadi{' '}
+              <span className="font-semibold text-ink-900">{confirmedValue}</span> untuk pelanggan
+              dengan nomor <span className="font-semibold text-ink-900">{msisdn}</span>
             </p>
           </div>
 

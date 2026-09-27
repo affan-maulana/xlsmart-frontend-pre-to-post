@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import type { PaketOption } from "@/lib/types";
+import type { PaketOption } from '@/lib/types';
 
 interface PaketUtamaSelectorProps {
   options: PaketOption[];
@@ -12,13 +12,12 @@ interface PaketUtamaSelectorProps {
 }
 
 const providerLogo: Record<string, string> = {
-  xl: "/icons/xllogo.svg",
+  xl: '/icons/xllogo.svg',
 };
 
 function formatRupiah(amount: number) {
-  return `Rp ${amount.toLocaleString("id-ID")}`;
+  return `Rp ${amount.toLocaleString('id-ID')}`;
 }
-
 
 export function PaketUtamaSelector({
   options,
@@ -52,17 +51,15 @@ export function PaketUtamaSelector({
               type="button"
               onClick={() => onSelect(paket)}
               className={`relative rounded-xl border-2 p-4 pt-5 text-left transition-colors ${
-                isSelected
-                  ? "border-transparent"
-                  : "border-black/10 hover:border-brand-indigo/40"
+                isSelected ? 'border-transparent' : 'border-black/10 hover:border-brand-indigo/40'
               }`}
               style={
                 isSelected
                   ? {
                       backgroundImage:
-                        "linear-gradient(white, white), linear-gradient(0deg, #1E22AA 0%, #E5005A 100%)",
-                      backgroundOrigin: "border-box",
-                      backgroundClip: "padding-box, border-box",
+                        'linear-gradient(white, white), linear-gradient(0deg, #1E22AA 0%, #E5005A 100%)',
+                      backgroundOrigin: 'border-box',
+                      backgroundClip: 'padding-box, border-box',
                     }
                   : undefined
               }
@@ -84,7 +81,9 @@ export function PaketUtamaSelector({
               )}
 
               <div className="flex items-center gap-1.5">
-                {logoSrc && <img src={logoSrc} alt={paket.provider} className="h-4 w-4 object-contain" />}
+                {logoSrc && (
+                  <img src={logoSrc} alt={paket.provider} className="h-4 w-4 object-contain" />
+                )}
                 <p className="text-xs font-semibold text-ink-700/60">• {paket.planName}</p>
               </div>
 

@@ -1,17 +1,10 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import {
-  Check,
-  CheckCircle2,
-  AlertCircle,
-  Clock3,
-  ChevronUp,
-  ChevronDown,
-} from "lucide-react";
+import { useState } from 'react';
+import { Check, CheckCircle2, AlertCircle, Clock3, ChevronUp, ChevronDown } from 'lucide-react';
 
-export type TransactionOverallStatus = "processing" | "failed" | "success";
-export type TransactionStepStatus = "done" | "pending" | "waiting" | "error";
+export type TransactionOverallStatus = 'processing' | 'failed' | 'success';
+export type TransactionStepStatus = 'done' | 'pending' | 'waiting' | 'error';
 
 export interface TransactionDetailField {
   label: string;
@@ -27,9 +20,9 @@ export interface TransactionStatusStep {
 }
 
 const STATUS_CONFIG: Record<TransactionOverallStatus, { icon: React.ElementType; bg: string }> = {
-  processing: { icon: Clock3, bg: "bg-amber-400" },
-  failed: { icon: AlertCircle, bg: "bg-rose-600" },
-  success: { icon: CheckCircle2, bg: "bg-emerald-500" },
+  processing: { icon: Clock3, bg: 'bg-amber-400' },
+  failed: { icon: AlertCircle, bg: 'bg-rose-600' },
+  success: { icon: CheckCircle2, bg: 'bg-emerald-500' },
 };
 
 export function InvoiceSentBanner({ email }: { email: string }) {
@@ -44,22 +37,22 @@ export function InvoiceSentBanner({ email }: { email: string }) {
 }
 
 function StepIcon({ status }: { status: TransactionStepStatus }) {
-  const base = "flex h-6 w-6 shrink-0 items-center justify-center rounded-full";
-  if (status === "done") {
+  const base = 'flex h-6 w-6 shrink-0 items-center justify-center rounded-full';
+  if (status === 'done') {
     return (
       <div className={`${base} bg-emerald-500`}>
         <Check className="h-3.5 w-3.5 text-white" strokeWidth={3} />
       </div>
     );
   }
-  if (status === "pending") {
+  if (status === 'pending') {
     return (
       <div className={`${base} bg-amber-400`}>
         <Clock3 className="h-3.5 w-3.5 text-white" />
       </div>
     );
   }
-  if (status === "error") {
+  if (status === 'error') {
     return (
       <div className={`${base} bg-rose-600`}>
         <AlertCircle className="h-3.5 w-3.5 text-white" />
@@ -132,9 +125,7 @@ export function TransactionStatusTimeline({ steps }: { steps: TransactionStatusS
               <StepIcon status={step.status} />
               <div className="flex-1 pt-0.5">
                 <p className="font-bold text-ink-900">{step.label}</p>
-                {step.timestamp && (
-                  <p className="text-xs text-ink-700/40">{step.timestamp}</p>
-                )}
+                {step.timestamp && <p className="text-xs text-ink-700/40">{step.timestamp}</p>}
                 {step.description && (
                   <p className="mt-1 whitespace-pre-line text-sm text-ink-700/70">
                     {step.description}
@@ -159,7 +150,7 @@ export function TransactionStatusActions({
   onUpdateStatus: () => void;
   onSelesai: () => void;
 }) {
-  if (status === "processing") {
+  if (status === 'processing') {
     return (
       <div className="mt-5 grid grid-cols-2 gap-4">
         <button

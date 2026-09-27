@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { Gift, AlertCircle } from "lucide-react";
-import type { ForeignCustomerProfile, PendingCase } from "@/lib/types";
+import { Gift, AlertCircle } from 'lucide-react';
+import type { ForeignCustomerProfile, PendingCase } from '@/lib/types';
 
 interface ForeignCustomerIdentityCardProps {
   customer: ForeignCustomerProfile;

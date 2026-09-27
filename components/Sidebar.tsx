@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   Menu,
@@ -18,8 +18,8 @@ import {
   BarChart3,
   UserCog,
   LogOut,
-} from "lucide-react";
-import { useState } from "react";
+} from 'lucide-react';
+import { useState } from 'react';
 
 interface NavItem {
   key: string;
@@ -28,26 +28,26 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { key: "profile", icon: UserCircle2, label: "Profil Pelanggan" },
-  { key: "folder", icon: FolderClosed, label: "Dokumen" },
-  { key: "network", icon: RadioTower, label: "Jaringan" },
-  { key: "mobile", icon: Smartphone, label: "Perangkat" },
-  { key: "scan", icon: ScanLine, label: "Verifikasi" },
-  { key: "sun", icon: Sun, label: "Aktivitas" },
-  { key: "wallet", icon: Wallet, label: "Pembayaran" },
-  { key: "transfer", icon: ArrowLeftRight, label: "Migrasi" },
-  { key: "userplus", icon: UserPlus, label: "Tambah Pelanggan" },
-  { key: "activity", icon: Activity, label: "Monitoring" },
-  { key: "book", icon: BookOpen, label: "Katalog" },
-  { key: "cart", icon: ShoppingCart, label: "Pemesanan" },
-  { key: "users", icon: Users, label: "Tim" },
-  { key: "chart", icon: BarChart3, label: "Laporan" },
-  { key: "usercog", icon: UserCog, label: "Pengaturan Akun" },
+  { key: 'profile', icon: UserCircle2, label: 'Profil Pelanggan' },
+  { key: 'folder', icon: FolderClosed, label: 'Dokumen' },
+  { key: 'network', icon: RadioTower, label: 'Jaringan' },
+  { key: 'mobile', icon: Smartphone, label: 'Perangkat' },
+  { key: 'scan', icon: ScanLine, label: 'Verifikasi' },
+  { key: 'sun', icon: Sun, label: 'Aktivitas' },
+  { key: 'wallet', icon: Wallet, label: 'Pembayaran' },
+  { key: 'transfer', icon: ArrowLeftRight, label: 'Migrasi' },
+  { key: 'userplus', icon: UserPlus, label: 'Tambah Pelanggan' },
+  { key: 'activity', icon: Activity, label: 'Monitoring' },
+  { key: 'book', icon: BookOpen, label: 'Katalog' },
+  { key: 'cart', icon: ShoppingCart, label: 'Pemesanan' },
+  { key: 'users', icon: Users, label: 'Tim' },
+  { key: 'chart', icon: BarChart3, label: 'Laporan' },
+  { key: 'usercog', icon: UserCog, label: 'Pengaturan Akun' },
 ];
 
 /** Fixed icon-rail sidebar. Active item is highlighted to mirror the reference UI. */
 export function Sidebar() {
-  const [active, setActive] = useState("profile");
+  const [active, setActive] = useState('profile');
 
   return (
     <aside className="hidden md:flex w-[72px] shrink-0 flex-col items-center bg-ink-900 py-4">
@@ -67,12 +67,12 @@ export function Sidebar() {
               key={key}
               type="button"
               aria-label={label}
-              aria-current={isActive ? "page" : undefined}
+              aria-current={isActive ? 'page' : undefined}
               onClick={() => setActive(key)}
               className={`relative flex h-11 w-11 items-center justify-center rounded-xl transition-colors ${
                 isActive
-                  ? "bg-white text-brand-indigo"
-                  : "text-white/50 hover:bg-white/10 hover:text-white"
+                  ? 'bg-white text-brand-indigo'
+                  : 'text-white/50 hover:bg-white/10 hover:text-white'
               }`}
             >
               <Icon size={20} strokeWidth={isActive ? 2.4 : 2} />

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { CountdownBadge, formatRupiah } from "./PaymentStatusShared";
+import { CountdownBadge, formatRupiah } from './PaymentStatusShared';
 
 function MockQrPattern() {
   // Pola QR statis/dekoratif, bukan QR asli yang bisa di-scan.
@@ -47,7 +47,13 @@ function MockQrPattern() {
         [size - 7, 0],
       ].map(([r, c], idx) => (
         <g key={idx}>
-          <rect x={c * cellSize} y={r * cellSize} width={7 * cellSize} height={7 * cellSize} fill="black" />
+          <rect
+            x={c * cellSize}
+            y={r * cellSize}
+            width={7 * cellSize}
+            height={7 * cellSize}
+            fill="black"
+          />
           <rect
             x={(c + 1) * cellSize}
             y={(r + 1) * cellSize}
@@ -75,10 +81,10 @@ interface QrisStatusCardProps {
 
 export function QrisStatusCard({ secondsLeft, totalTagihan }: QrisStatusCardProps) {
   const instructions = [
-    "Buka aplikasi e-wallet atau m-banking apa pun yang mendukung QRIS",
-    "Pilih menu Scan QR, lalu arahkan kamera ke kode di samping",
+    'Buka aplikasi e-wallet atau m-banking apa pun yang mendukung QRIS',
+    'Pilih menu Scan QR, lalu arahkan kamera ke kode di samping',
     `Periksa nominal ${formatRupiah(totalTagihan)} sudah sesuai`,
-    "Konfirmasi dan selesaikan pembayaran dari aplikasi pelanggan",
+    'Konfirmasi dan selesaikan pembayaran dari aplikasi pelanggan',
   ];
 
   return (
@@ -95,7 +101,7 @@ export function QrisStatusCard({ secondsLeft, totalTagihan }: QrisStatusCardProp
 
       <div
         className="mx-auto mt-5 flex w-full max-w-xs flex-col items-center gap-4 rounded-2xl p-5"
-        style={{ background: "linear-gradient(160deg, #C026D3 0%, #6D28D9 100%)" }}
+        style={{ background: 'linear-gradient(160deg, #C026D3 0%, #6D28D9 100%)' }}
       >
         <p className="text-lg font-black italic tracking-wide text-white">QRIS</p>
         <div className="w-full rounded-xl bg-white p-3">

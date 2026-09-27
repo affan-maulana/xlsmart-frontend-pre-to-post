@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { X, ChevronRight, Check } from "lucide-react";
-import type { PhoneNumber } from "@/lib/types";
-import { ProviderIcon } from "./ProviderIcon";
+import { X, ChevronRight, Check } from 'lucide-react';
+import type { PhoneNumber } from '@/lib/types';
+import { ProviderIcon } from './ProviderIcon';
 
 interface AllNumbersModalProps {
   customerName: string;
@@ -12,22 +12,22 @@ interface AllNumbersModalProps {
 }
 
 const providerLabel: Record<string, string> = {
-  xl: "XL Axiata",
-  axis: "AXIS",
-  smartfren: "Smartfren",
-  other: "Lainnya",
+  xl: 'XL Axiata',
+  axis: 'AXIS',
+  smartfren: 'Smartfren',
+  other: 'Lainnya',
 };
 
-type RowStatus = "aktif" | "outstanding" | "nonaktif";
+type RowStatus = 'aktif' | 'outstanding' | 'nonaktif';
 
 function getRowStatus(number: PhoneNumber): RowStatus {
-  if (number.status === "suspend" || number.status === "nonaktif") return "nonaktif";
-  if (number.outstanding) return "outstanding";
-  return "aktif";
+  if (number.status === 'suspend' || number.status === 'nonaktif') return 'nonaktif';
+  if (number.outstanding) return 'outstanding';
+  return 'aktif';
 }
 
 function StatusBadge({ status }: { status: RowStatus }) {
-  if (status === "aktif") {
+  if (status === 'aktif') {
     return (
       <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-3 py-1.5 text-sm font-bold text-emerald-500">
         <Check size={16} strokeWidth={3} />
@@ -35,7 +35,7 @@ function StatusBadge({ status }: { status: RowStatus }) {
       </span>
     );
   }
-  if (status === "outstanding") {
+  if (status === 'outstanding') {
     return (
       <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-3 py-1.5 text-sm font-bold text-amber-500">
         <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-amber-500 text-[10px] font-bold leading-none text-white">
@@ -63,7 +63,7 @@ function NumberRow({
   onSelect?: (number: PhoneNumber) => void;
 }) {
   const status = getRowStatus(number);
-  const label = providerLabel[number.provider ?? "other"] ?? providerLabel.other;
+  const label = providerLabel[number.provider ?? 'other'] ?? providerLabel.other;
 
   return (
     <button
@@ -87,15 +87,14 @@ function NumberRow({
   );
 }
 
-
 export function AllNumbersModal({
   customerName,
   numbers,
   onClose,
   onSelectNumber,
 }: AllNumbersModalProps) {
-  const activeNumbers = numbers.filter((n) => getRowStatus(n) !== "nonaktif");
-  const inactiveNumbers = numbers.filter((n) => getRowStatus(n) === "nonaktif");
+  const activeNumbers = numbers.filter((n) => getRowStatus(n) !== 'nonaktif');
+  const inactiveNumbers = numbers.filter((n) => getRowStatus(n) === 'nonaktif');
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">

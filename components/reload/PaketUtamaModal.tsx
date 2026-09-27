@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { useMemo, useState } from "react";
-import { Search, X, ChevronDown, ChevronLeft, ChevronRight } from "lucide-react";
-import type { PaketOption, PaketCategory } from "@/lib/types";
+import { useMemo, useState } from 'react';
+import { Search, X, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import type { PaketOption, PaketCategory } from '@/lib/types';
 
 interface PaketUtamaModalProps {
   isOpen: boolean;
@@ -16,11 +16,11 @@ interface PaketUtamaModalProps {
 }
 
 const providerLogo: Record<string, string> = {
-  xl: "/icons/xllogo.svg",
+  xl: '/icons/xllogo.svg',
 };
 
 function formatRupiah(amount: number) {
-  return `Rp ${amount.toLocaleString("id-ID")}`;
+  return `Rp ${amount.toLocaleString('id-ID')}`;
 }
 
 export function PaketUtamaModal({
@@ -33,8 +33,8 @@ export function PaketUtamaModal({
   pageSize = 9,
   recommendedBadgeSrc,
 }: PaketUtamaModalProps) {
-  const [search, setSearch] = useState("");
-  const [category, setCategory] = useState<PaketCategory>("semua");
+  const [search, setSearch] = useState('');
+  const [category, setCategory] = useState<PaketCategory>('semua');
   const [tipePembayaran, setTipePembayaran] = useState<string | null>(null);
   const [masaBerlangganan, setMasaBerlangganan] = useState<string | null>(null);
   const [page, setPage] = useState(1);
@@ -43,9 +43,9 @@ export function PaketUtamaModal({
   const filtered = useMemo(() => {
     return options.filter((p) => {
       const matchCategory =
-        category === "semua" ||
-        (category === "flexmini" && p.planName.toLowerCase().includes("mini")) ||
-        (category === "flexmax" && p.planName.toLowerCase().includes("max"));
+        category === 'semua' ||
+        (category === 'flexmini' && p.planName.toLowerCase().includes('mini')) ||
+        (category === 'flexmax' && p.planName.toLowerCase().includes('max'));
 
       const matchSearch =
         !search ||
@@ -53,8 +53,7 @@ export function PaketUtamaModal({
         p.quotaLabel.toLowerCase().includes(search.toLowerCase()) ||
         p.durationLabel.toLowerCase().includes(search.toLowerCase());
 
-      const matchMasa =
-        !masaBerlangganan || p.durationLabel.includes(masaBerlangganan);
+      const matchMasa = !masaBerlangganan || p.durationLabel.includes(masaBerlangganan);
 
       return matchCategory && matchSearch && matchMasa;
     });
@@ -64,8 +63,8 @@ export function PaketUtamaModal({
   const paginated = filtered.slice((page - 1) * pageSize, page * pageSize);
 
   function resetFilter() {
-    setSearch("");
-    setCategory("semua");
+    setSearch('');
+    setCategory('semua');
     setTipePembayaran(null);
     setMasaBerlangganan(null);
     setPage(1);
@@ -127,9 +126,9 @@ export function PaketUtamaModal({
           <div className="mt-4 flex flex-wrap items-center gap-3">
             {(
               [
-                { value: "semua", label: "Semua" },
-                { value: "flexmini", label: "FlexMini" },
-                { value: "flexmax", label: "FlexMax" },
+                { value: 'semua', label: 'Semua' },
+                { value: 'flexmini', label: 'FlexMini' },
+                { value: 'flexmax', label: 'FlexMax' },
               ] as { value: PaketCategory; label: string }[]
             ).map((tab) => (
               <button
@@ -141,8 +140,8 @@ export function PaketUtamaModal({
                 }}
                 className={`rounded-full border px-4 py-2 text-sm font-semibold ${
                   category === tab.value
-                    ? "border-brand-indigo text-brand-indigo"
-                    : "border-transparent bg-ink-50 text-ink-700/70"
+                    ? 'border-brand-indigo text-brand-indigo'
+                    : 'border-transparent bg-ink-50 text-ink-700/70'
                 }`}
               >
                 {tab.label}
@@ -151,7 +150,7 @@ export function PaketUtamaModal({
 
             <div className="relative">
               <select
-                value={tipePembayaran ?? ""}
+                value={tipePembayaran ?? ''}
                 onChange={(e) => setTipePembayaran(e.target.value || null)}
                 className="appearance-none rounded-full border border-black/10 px-4 py-2 pr-9 text-sm text-ink-700/70 outline-none"
               >
@@ -167,7 +166,7 @@ export function PaketUtamaModal({
 
             <div className="relative">
               <select
-                value={masaBerlangganan ?? ""}
+                value={masaBerlangganan ?? ''}
                 onChange={(e) => {
                   setMasaBerlangganan(e.target.value || null);
                   setPage(1);
@@ -198,19 +197,19 @@ export function PaketUtamaModal({
                   onClick={() => setSelectedId(paket.id)}
                   className={`relative flex flex-col rounded-xl border p-4 pt-5 text-left transition-colors ${
                     isSelected
-                        ? "border-transparent"
-                        : "border-black/10 hover:border-brand-indigo/40"
-                    }`}
-                    style={
-                      isSelected
-                        ? {
-                            backgroundImage:
-                              "linear-gradient(white, white), linear-gradient(0deg, #1E22AA 0%, #E5005A 100%)",
-                            backgroundOrigin: "border-box",
-                            backgroundClip: "padding-box, border-box",
-                          }
-                        : undefined
-                    }
+                      ? 'border-transparent'
+                      : 'border-black/10 hover:border-brand-indigo/40'
+                  }`}
+                  style={
+                    isSelected
+                      ? {
+                          backgroundImage:
+                            'linear-gradient(white, white), linear-gradient(0deg, #1E22AA 0%, #E5005A 100%)',
+                          backgroundOrigin: 'border-box',
+                          backgroundClip: 'padding-box, border-box',
+                        }
+                      : undefined
+                  }
                 >
                   {paket.recommended && (
                     <>
@@ -254,9 +253,7 @@ export function PaketUtamaModal({
           </div>
 
           {filtered.length === 0 && (
-            <p className="mt-8 text-center text-sm text-ink-700/50">
-              Paket tidak ditemukan.
-            </p>
+            <p className="mt-8 text-center text-sm text-ink-700/50">Paket tidak ditemukan.</p>
           )}
 
           {/* Pagination */}
@@ -277,7 +274,7 @@ export function PaketUtamaModal({
                   type="button"
                   onClick={() => setPage(n)}
                   className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold ${
-                    page === n ? "bg-brand-indigo/10 text-brand-indigo" : "text-ink-700/60"
+                    page === n ? 'bg-brand-indigo/10 text-brand-indigo' : 'text-ink-700/60'
                   }`}
                 >
                   {n}

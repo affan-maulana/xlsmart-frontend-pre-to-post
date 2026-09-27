@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@company/shared-ui": "file:../share-ui-frontend-service",
@@ -14,7 +16,8 @@
     "next": "^16.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "uuid": "^11.0.3"
+    "uuid": "^11.0.3",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@svgr/webpack": "^8.1.0",
@@ -23,7 +26,10 @@
     "@types/react-dom": "^19.0.2",
     "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.4.20",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.6",
     "postcss": "^8.4.49",
+    "prettier": "^3.9.9",
     "tailwindcss": "^3.4.17",
     "typescript": "5.9.3"
   }

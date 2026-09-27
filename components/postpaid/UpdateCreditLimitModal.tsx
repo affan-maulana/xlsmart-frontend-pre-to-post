@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { X, Check } from "lucide-react";
+import { useState } from 'react';
+import { X, Check } from 'lucide-react';
 
 const PRESET_NOMINALS = [100000, 200000, 300000, 400000, 600000, 700000, 800000];
 
 function formatRupiah(amount: number) {
-  return amount.toLocaleString("id-ID");
+  return amount.toLocaleString('id-ID');
 }
 
 interface UpdateCreditLimitModalProps {
@@ -28,26 +28,26 @@ export function UpdateCreditLimitModal({
   onClose,
   onSuccess,
 }: UpdateCreditLimitModalProps) {
-  const isCash = paymentMethod.trim().toLowerCase() === "cash";
+  const isCash = paymentMethod.trim().toLowerCase() === 'cash';
 
-  const [step, setStep] = useState<"edit" | "success">("edit");
-  const [mode, setMode] = useState<"preset" | "input">("preset");
+  const [step, setStep] = useState<'edit' | 'success'>('edit');
+  const [mode, setMode] = useState<'preset' | 'input'>('preset');
   const [selectedPreset, setSelectedPreset] = useState<number | null>(null);
-  const [customValue, setCustomValue] = useState("");
+  const [customValue, setCustomValue] = useState('');
   const [confirmedValue, setConfirmedValue] = useState(currentLimit);
 
-  const customNumber = Number(customValue.replace(/[^0-9]/g, "")) || 0;
+  const customNumber = Number(customValue.replace(/[^0-9]/g, '')) || 0;
   const isCustomValid = customNumber > 0 && customNumber % 100000 === 0;
 
   const canSubmit =
-    !isCash && mode === "input"
+    !isCash && mode === 'input'
       ? isCustomValid
       : selectedPreset !== null && selectedPreset !== currentLimit;
 
   function handleCustomValueChange(raw: string) {
-    const digitsOnly = raw.replace(/[^0-9]/g, "");
+    const digitsOnly = raw.replace(/[^0-9]/g, '');
     if (!digitsOnly) {
-      setCustomValue("");
+      setCustomValue('');
       return;
     }
     const numeric = Number(digitsOnly);
@@ -55,16 +55,16 @@ export function UpdateCreditLimitModal({
   }
 
   function handleUpdate() {
-    const newValue = !isCash && mode === "input" ? customNumber : selectedPreset!;
+    const newValue = !isCash && mode === 'input' ? customNumber : selectedPreset!;
     setConfirmedValue(newValue);
-    setStep("success");
+    setStep('success');
   }
 
   function handleFinish() {
     onSuccess(confirmedValue);
   }
 
-  if (step === "success") {
+  if (step === 'success') {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
         <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
@@ -88,10 +88,10 @@ export function UpdateCreditLimitModal({
             </div>
             <p className="mt-4 text-base font-bold text-ink-900">Kredit Limit Berhasil diupdate</p>
             <p className="mt-1 text-sm text-ink-700/60">
-              Kredit Limit berhasil diupdate menjadi{" "}
-              <span className="font-semibold text-ink-900">Rp {formatRupiah(confirmedValue)}</span>{" "}
-              untuk pelanggan dengan nomor{" "}
-              <span className="font-semibold text-ink-900">{msisdn || "087825696966"}</span>
+              Kredit Limit berhasil diupdate menjadi{' '}
+              <span className="font-semibold text-ink-900">Rp {formatRupiah(confirmedValue)}</span>{' '}
+              untuk pelanggan dengan nomor{' '}
+              <span className="font-semibold text-ink-900">{msisdn || '087825696966'}</span>
             </p>
           </div>
 
@@ -128,19 +128,19 @@ export function UpdateCreditLimitModal({
           <div className="flex divide-x divide-black/10">
             <div className="flex-1 pr-4">
               <p className="text-xs text-ink-700/50">MSISDN</p>
-              <p className="mt-1 text-sm font-bold text-ink-900">{msisdn || "087825696966"}</p>
+              <p className="mt-1 text-sm font-bold text-ink-900">{msisdn || '087825696966'}</p>
             </div>
 
             <div className="flex-1 px-4">
-              <p className="text-xs text-ink-700/50">{isCash ? "Metode Pembayaran" : "Email"}</p>
+              <p className="text-xs text-ink-700/50">{isCash ? 'Metode Pembayaran' : 'Email'}</p>
               <p className="mt-1 text-sm font-bold text-ink-900">
-                {isCash ? paymentMethod : email || "-"}
+                {isCash ? paymentMethod : email || '-'}
               </p>
             </div>
 
             <div className="flex-1 pl-4">
               <p className="text-xs text-ink-700/50">
-                {isCash ? "Current Limit" : "Metode Pembayaran"}
+                {isCash ? 'Current Limit' : 'Metode Pembayaran'}
               </p>
               <p className="mt-1 text-sm font-bold text-ink-900">
                 {isCash ? `Rp ${formatRupiah(currentLimit)}` : paymentMethod}
@@ -150,10 +150,10 @@ export function UpdateCreditLimitModal({
 
           <div className="mt-4">
             <p className="text-xs text-ink-700/50">
-              {isCash ? "Current Deposit" : "Current Limit"}
+              {isCash ? 'Current Deposit' : 'Current Limit'}
             </p>
             <p className="mt-1 text-sm font-bold text-ink-900">
-              Rp {formatRupiah(isCash ? currentDeposit ?? 0 : currentLimit)}
+              Rp {formatRupiah(isCash ? (currentDeposit ?? 0) : currentLimit)}
             </p>
           </div>
         </div>
@@ -164,22 +164,22 @@ export function UpdateCreditLimitModal({
             <div className="grid grid-cols-2 gap-2 rounded-lg bg-black/5 p-1">
               <button
                 type="button"
-                onClick={() => setMode("preset")}
+                onClick={() => setMode('preset')}
                 className={`rounded-md py-2 text-sm font-semibold transition-colors ${
-                  mode === "preset"
-                    ? "border border-brand-indigo bg-white text-brand-indigo shadow-sm"
-                    : "text-ink-700/60"
+                  mode === 'preset'
+                    ? 'border border-brand-indigo bg-white text-brand-indigo shadow-sm'
+                    : 'text-ink-700/60'
                 }`}
               >
                 Pilih Nominal
               </button>
               <button
                 type="button"
-                onClick={() => setMode("input")}
+                onClick={() => setMode('input')}
                 className={`rounded-md py-2 text-sm font-semibold transition-colors ${
-                  mode === "input"
-                    ? "border border-brand-indigo bg-white text-brand-indigo shadow-sm"
-                    : "text-ink-700/60"
+                  mode === 'input'
+                    ? 'border border-brand-indigo bg-white text-brand-indigo shadow-sm'
+                    : 'text-ink-700/60'
                 }`}
               >
                 Input Nominal
@@ -188,7 +188,7 @@ export function UpdateCreditLimitModal({
           </div>
         )}
 
-        {isCash || mode === "preset" ? (
+        {isCash || mode === 'preset' ? (
           <div className="mt-4">
             <p className="mb-2 text-sm text-ink-700/60">Pilih Nominal Limit</p>
             <div className="grid grid-cols-3 gap-3">
@@ -200,10 +200,10 @@ export function UpdateCreditLimitModal({
                     key={amount}
                     className={`relative rounded-lg p-[2px] transition-colors ${
                       isCurrent
-                        ? "bg-black/10"
+                        ? 'bg-black/10'
                         : isSelected
-                        ? "bg-gradient-to-b from-[#1E22AA] to-[#E5005A]"
-                        : "bg-black/10 hover:bg-gradient-to-b hover:from-[#1E22AA] hover:to-[#E5005A]"
+                          ? 'bg-gradient-to-b from-[#1E22AA] to-[#E5005A]'
+                          : 'bg-black/10 hover:bg-gradient-to-b hover:from-[#1E22AA] hover:to-[#E5005A]'
                     }`}
                   >
                     {isCurrent && (
@@ -217,10 +217,10 @@ export function UpdateCreditLimitModal({
                       onClick={() => setSelectedPreset(amount)}
                       className={`flex h-full w-full items-center justify-center rounded-[6px] bg-white px-3 py-2.5 text-sm font-semibold transition-colors ${
                         isCurrent
-                          ? "cursor-not-allowed text-ink-700/30"
+                          ? 'cursor-not-allowed text-ink-700/30'
                           : isSelected
-                          ? "text-brand-indigo"
-                          : "text-ink-900 hover:text-brand-indigo"
+                            ? 'text-brand-indigo'
+                            : 'text-ink-900 hover:text-brand-indigo'
                       }`}
                     >
                       Rp {formatRupiah(amount)}
@@ -241,13 +241,13 @@ export function UpdateCreditLimitModal({
               placeholder="Rp 0"
               className={`w-full rounded-lg border px-3 py-2.5 text-sm font-semibold text-ink-900 focus:outline-none ${
                 customValue && !isCustomValid
-                  ? "border-rose-400 focus:border-rose-400"
-                  : "border-black/10 focus:border-brand-indigo"
+                  ? 'border-rose-400 focus:border-rose-400'
+                  : 'border-black/10 focus:border-brand-indigo'
               }`}
             />
             <p
               className={`mt-1.5 text-xs ${
-                customValue && !isCustomValid ? "text-rose-500" : "text-ink-700/50"
+                customValue && !isCustomValid ? 'text-rose-500' : 'text-ink-700/50'
               }`}
             >
               Nominal harus kelipatan Rp 100.000

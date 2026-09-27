@@ -1,17 +1,17 @@
-"use client";
+'use client';
 
-import type { OrderSummaryField } from "@/lib/types";
-import { Timer } from "lucide-react";
+import type { OrderSummaryField } from '@/lib/types';
+import { Timer } from 'lucide-react';
 
 export function formatRupiah(amount: number) {
-  return `Rp ${amount.toLocaleString("id-ID")}`;
+  return `Rp ${amount.toLocaleString('id-ID')}`;
 }
 
 export function formatCountdown(totalSeconds: number) {
   const h = Math.floor(totalSeconds / 3600);
   const m = Math.floor((totalSeconds % 3600) / 60);
   const s = totalSeconds % 60;
-  const pad = (n: number) => n.toString().padStart(2, "0");
+  const pad = (n: number) => n.toString().padStart(2, '0');
   return `-${pad(h)}:${pad(m)}:${pad(s)}`;
 }
 
@@ -43,7 +43,7 @@ export function CountdownBadge({ secondsLeft }: { secondsLeft: number }) {
 export function PaymentStatusActions({
   onGantiMetode,
   onPrimaryAction,
-  primaryLabel = "Update Status Pembayaran",
+  primaryLabel = 'Update Status Pembayaran',
 }: {
   onGantiMetode: () => void;
   onPrimaryAction: () => void;

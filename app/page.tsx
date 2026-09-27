@@ -1,9 +1,9 @@
-import { QueueBar } from "@/components/QueueBar";
-import { MetricPanel } from "@/components/MetricPanel";
-import { TransactionHistoryRow } from "@/components/TransactionHistoryRow";
-import { PromoBannerCard } from "@/components/PromoBannerCard";
-import { CustomerProfileMain } from "@/components/CustomerProfileMain";
-import { PostpaidPlanDetailCard } from "@/components/postpaid/PostpaidPlanDetailCard";
+import { QueueBar } from '@/components/QueueBar';
+import { MetricPanel } from '@/components/MetricPanel';
+import { TransactionHistoryRow } from '@/components/TransactionHistoryRow';
+import { PromoBannerCard } from '@/components/PromoBannerCard';
+import { CustomerProfileMain } from '@/components/CustomerProfileMain';
+import { PostpaidPlanDetailCard } from '@/components/postpaid/PostpaidPlanDetailCard';
 import {
   agent,
   agentQueue,
@@ -17,13 +17,12 @@ import {
   registeredPhoneNumbers,
   subscriptionSummary,
   usageMetrics,
-} from "@/lib/mockData";
-import { HomePlanDetailCard } from "@/components/HomePlanDetailCard";
+} from '@/lib/mockData';
+import { HomePlanDetailCard } from '@/components/HomePlanDetailCard';
 
 export default function CustomerProfilePage() {
   return (
     <div className="flex h-screen bg-[#F4F5F9]">
-
       <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
         <QueueBar queue={agentQueue} />
 

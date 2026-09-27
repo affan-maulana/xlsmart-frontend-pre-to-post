@@ -1,5 +1,5 @@
-import { ChevronRight } from "lucide-react";
-import { Card } from "@/components/ui/Card";
+import { ChevronRight } from 'lucide-react';
+import { Card } from '@/components/ui/Card';
 
 /** Single-line entry point into the customer's full transaction history. */
 export function TransactionHistoryRow() {

@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { X } from "lucide-react";
+import { X } from 'lucide-react';
 
 interface ViewPaymentMethodModalProps {
   msisdn: string;
@@ -11,8 +11,8 @@ interface ViewPaymentMethodModalProps {
 }
 
 function maskCreditCardNumber(cardNumber: string) {
-  const digitsOnly = cardNumber.replace(/[^0-9]/g, "");
-  if (!digitsOnly) return "-";
+  const digitsOnly = cardNumber.replace(/[^0-9]/g, '');
+  if (!digitsOnly) return '-';
   const last4 = digitsOnly.slice(-4);
   return `xxxx-xxxx-${last4}`;
 }
@@ -24,7 +24,7 @@ export function ViewPaymentMethodModal({
   creditCardExpiry,
   onClose,
 }: ViewPaymentMethodModalProps) {
-  const isCash = paymentMethod.trim().toLowerCase() === "cash";
+  const isCash = paymentMethod.trim().toLowerCase() === 'cash';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
@@ -48,7 +48,7 @@ export function ViewPaymentMethodModal({
             <div className="flex divide-x divide-black/10">
               <div className="flex-1 pr-4">
                 <p className="text-xs text-ink-700/50">MSISDN</p>
-                <p className="mt-1 text-sm font-bold text-ink-900">{msisdn  || "087825696966"}</p>
+                <p className="mt-1 text-sm font-bold text-ink-900">{msisdn || '087825696966'}</p>
               </div>
               <div className="flex-1 pl-4">
                 <p className="text-xs text-ink-700/50">Metode Pembayaran</p>
@@ -59,17 +59,17 @@ export function ViewPaymentMethodModal({
             <div className="flex divide-x divide-black/10">
               <div className="flex-1 pr-4">
                 <p className="text-xs text-ink-700/50">MSISDN</p>
-                <p className="mt-1 text-sm font-bold text-ink-900">{msisdn  || "087825696966"}</p>
+                <p className="mt-1 text-sm font-bold text-ink-900">{msisdn || '087825696966'}</p>
               </div>
               <div className="flex-1 px-4">
                 <p className="text-xs text-ink-700/50">Nomor Credit Card</p>
                 <p className="mt-1 text-sm font-bold text-ink-900">
-                  {creditCardNumber ? maskCreditCardNumber(creditCardNumber) : "-"}
+                  {creditCardNumber ? maskCreditCardNumber(creditCardNumber) : '-'}
                 </p>
               </div>
               <div className="flex-1 pl-4">
                 <p className="text-xs text-ink-700/50">Tanggal Kadaluarsa</p>
-                <p className="mt-1 text-sm font-bold text-ink-900">{creditCardExpiry || "-"}</p>
+                <p className="mt-1 text-sm font-bold text-ink-900">{creditCardExpiry || '-'}</p>
               </div>
             </div>
           )}

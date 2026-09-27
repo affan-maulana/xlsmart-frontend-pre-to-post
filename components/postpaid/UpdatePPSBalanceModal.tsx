@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import { X, Check } from "lucide-react";
+import { useState } from 'react';
+import { X, Check } from 'lucide-react';
 
 const PRESET_NOMINALS = [100000, 200000, 300000, 400000, 500000, 600000, 700000, 800000];
 
 function formatRupiah(amount: number) {
-  return amount.toLocaleString("id-ID");
+  return amount.toLocaleString('id-ID');
 }
 
 interface UpdatePPSBalanceModalProps {
@@ -31,9 +31,9 @@ export function UpdatePPSBalanceModal({
   onClose,
   onSuccess,
 }: UpdatePPSBalanceModalProps) {
-  const [step, setStep] = useState<"edit" | "success">("edit");
+  const [step, setStep] = useState<'edit' | 'success'>('edit');
   const [selectedPreset, setSelectedPreset] = useState<number | null>(null);
-  const [reason, setReason] = useState("");
+  const [reason, setReason] = useState('');
   const [reasonTouched, setReasonTouched] = useState(false);
   const [confirmedValue, setConfirmedValue] = useState(currentPPSBalance);
 
@@ -50,14 +50,14 @@ export function UpdatePPSBalanceModal({
       return;
     }
     setConfirmedValue(selectedPreset);
-    setStep("success");
+    setStep('success');
   }
 
   function handleFinish() {
     onSuccess(confirmedValue, reason.trim());
   }
 
-  if (step === "success") {
+  if (step === 'success') {
     return (
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
         <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
@@ -81,10 +81,10 @@ export function UpdatePPSBalanceModal({
             </div>
             <p className="mt-4 text-base font-bold text-ink-900">PPS Balance Berhasil diupdate</p>
             <p className="mt-1 text-sm text-ink-700/60">
-              PPS Balance berhasil diupdate menjadi{" "}
-              <span className="font-semibold text-ink-900">Rp {formatRupiah(confirmedValue)}</span>{" "}
-              untuk pelanggan dengan nomor{" "}
-              <span className="font-semibold text-ink-900">{"087825696966"}</span>
+              PPS Balance berhasil diupdate menjadi{' '}
+              <span className="font-semibold text-ink-900">Rp {formatRupiah(confirmedValue)}</span>{' '}
+              untuk pelanggan dengan nomor{' '}
+              <span className="font-semibold text-ink-900">{'087825696966'}</span>
             </p>
           </div>
 
@@ -121,7 +121,7 @@ export function UpdatePPSBalanceModal({
           <div className="flex divide-x divide-black/10">
             <div className="flex-1 pr-4">
               <p className="text-xs text-ink-700/50">MSISDN</p>
-              <p className="mt-1 text-sm font-bold text-ink-900">{"087825696966"}</p>
+              <p className="mt-1 text-sm font-bold text-ink-900">{'087825696966'}</p>
             </div>
 
             <div className="flex-1 px-4">
@@ -151,10 +151,10 @@ export function UpdatePPSBalanceModal({
                   key={amount}
                   className={`relative rounded-lg p-[2px] transition-colors ${
                     isCurrent
-                      ? "bg-black/10"
+                      ? 'bg-black/10'
                       : isSelected
-                      ? "bg-gradient-to-b from-[#1E22AA] to-[#E5005A]"
-                      : "bg-black/10 hover:bg-gradient-to-b hover:from-[#1E22AA] hover:to-[#E5005A]"
+                        ? 'bg-gradient-to-b from-[#1E22AA] to-[#E5005A]'
+                        : 'bg-black/10 hover:bg-gradient-to-b hover:from-[#1E22AA] hover:to-[#E5005A]'
                   }`}
                 >
                   {isCurrent && (
@@ -168,10 +168,10 @@ export function UpdatePPSBalanceModal({
                     onClick={() => setSelectedPreset(amount)}
                     className={`flex h-full w-full items-center justify-center rounded-[6px] bg-white px-3 py-2.5 text-sm font-semibold transition-colors ${
                       isCurrent
-                        ? "cursor-not-allowed text-ink-700/30"
+                        ? 'cursor-not-allowed text-ink-700/30'
                         : isSelected
-                        ? "text-brand-indigo"
-                        : "text-ink-900 hover:text-brand-indigo"
+                          ? 'text-brand-indigo'
+                          : 'text-ink-900 hover:text-brand-indigo'
                     }`}
                   >
                     Rp {formatRupiah(amount)}
@@ -195,13 +195,11 @@ export function UpdatePPSBalanceModal({
             aria-invalid={showReasonError}
             className={`w-full rounded-lg border px-3 py-2.5 text-sm font-semibold text-ink-900 focus:outline-none ${
               showReasonError
-                ? "border-rose-400 focus:border-rose-400"
-                : "border-black/10 focus:border-brand-indigo"
+                ? 'border-rose-400 focus:border-rose-400'
+                : 'border-black/10 focus:border-brand-indigo'
             }`}
           />
-          {showReasonError && (
-            <p className="mt-1.5 text-xs text-rose-500">Alasan wajib diisi</p>
-          )}
+          {showReasonError && <p className="mt-1.5 text-xs text-rose-500">Alasan wajib diisi</p>}
         </div>
 
         <button
