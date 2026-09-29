@@ -10,14 +10,14 @@ interface AlertRowProps {
 export function AlertRow({ message, actionLabel, variant = 'onWhite' }: AlertRowProps) {
   if (variant === 'warnBanner') {
     return (
-      <div className="flex items-center justify-between gap-4 rounded-card bg-status-warnBg px-5 py-4 sm:px-6">
+      <div className="flex items-center justify-between gap-4 rounded-2xl bg-warning-subtle px-5 py-4 sm:px-6">
         <div className="flex items-center gap-3">
-          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-status-warn text-white">
+          <span className="flex h-6 w-6 items-center justify-center rounded-full bg-warning text-white">
             <AlertCircle size={14} />
           </span>
-          <p className="text-sm font-medium text-ink-900">{message}</p>
+          <p className="text-sm font-medium text-foreground">{message}</p>
         </div>
-        <button type="button" className="whitespace-nowrap text-sm font-semibold text-brand-link">
+        <button type="button" className="whitespace-nowrap text-sm font-semibold text-info">
           {actionLabel}
         </button>
       </div>
@@ -25,14 +25,14 @@ export function AlertRow({ message, actionLabel, variant = 'onWhite' }: AlertRow
   }
 
   return (
-    <div className="flex items-center justify-between gap-4 rounded-card bg-white px-5 py-4 sm:px-6">
+    <div className="flex items-center justify-between gap-4 rounded-2xl bg-white px-5 py-4 sm:px-6">
       <div className="flex items-center gap-3">
-        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-ink-900 text-white">
+        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-foreground text-white">
           <AlertCircle size={14} />
         </span>
-        <p className="text-sm text-ink-900">{message}</p>
+        <p className="text-sm text-foreground">{message}</p>
       </div>
-      <button type="button" className="whitespace-nowrap text-sm font-semibold text-brand-link">
+      <button type="button" className="whitespace-nowrap text-sm font-semibold text-info">
         {actionLabel}
       </button>
     </div>

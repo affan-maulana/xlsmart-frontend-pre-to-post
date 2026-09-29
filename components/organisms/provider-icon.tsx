@@ -1,8 +1,7 @@
-'use client';
-
 import { useState } from 'react';
 import { Smartphone } from 'lucide-react';
 import type { PhoneNumber } from '@/lib/types';
+import { cn } from '@/lib/utils';
 
 type ProviderStyle = {
   iconBg: string;
@@ -11,9 +10,9 @@ type ProviderStyle = {
 };
 
 const fallbackProviderStyle: Record<string, ProviderStyle> = {
-  xl: { iconBg: 'bg-brand-indigo/10', iconText: 'text-brand-indigo', label: '' },
-  axis: { iconBg: 'bg-black/5', iconText: 'text-ink-700/60', label: '' },
-  smartfren: { iconBg: 'bg-pink-50', iconText: 'text-pink-600', label: 'sf' },
+  xl: { iconBg: 'bg-primary/10', iconText: 'text-primary', label: '' },
+  axis: { iconBg: 'bg-faint', iconText: 'text-ink-muted', label: '' },
+  smartfren: { iconBg: 'bg-destructive-subtle', iconText: 'text-destructive', label: 'sf' },
   other: { iconBg: 'bg-purple-100', iconText: 'text-purple-600', label: '' },
 };
 
@@ -27,8 +26,8 @@ interface ProviderIconProps {
 }
 
 const sizeClasses: Record<'sm' | 'md', { box: string; icon: number; text: string }> = {
-  sm: { box: 'h-5 w-5', icon: 12, text: 'text-[10px]' },
-  md: { box: 'h-7 w-7', icon: 16, text: 'text-xs' },
+  sm: { box: 'size-5', icon: 12, text: 'text-2xs' },
+  md: { box: 'size-7', icon: 16, text: 'text-xs' },
 };
 
 function FallbackBadge({
@@ -45,7 +44,13 @@ function FallbackBadge({
   const style = fallbackProviderStyle[provider ?? 'other'] ?? fallbackProviderStyle.other;
   return (
     <span
-      className={`flex ${box} shrink-0 items-center justify-center rounded-full font-bold ${text} ${style.iconBg} ${style.iconText}`}
+      className={cn(
+        'flex shrink-0 items-center justify-center rounded-full font-bold',
+        box,
+        text,
+        style.iconBg,
+        style.iconText
+      )}
     >
       {style.label || <Smartphone size={icon} />}
     </span>
@@ -78,7 +83,7 @@ function ProviderLogoImg({
     <img
       src={src}
       alt={alt}
-      className={`${box} shrink-0 object-contain`}
+      className={cn('shrink-0 object-contain', box)}
       onError={() => setErrored(true)}
     />
   );

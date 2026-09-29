@@ -23,11 +23,11 @@ export function EwalletStatusCard({
   ];
 
   return (
-    <div className="mt-8 max-w-2xl rounded-2xl border border-black/10 bg-[#FAFAFB] p-5 sm:p-6">
+    <div className="mt-8 max-w-2xl rounded-2xl border border-black/10 bg-faint p-5 sm:p-6">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-lg font-extrabold text-ink-900">Menunggu Pembayaran</p>
-          <p className="mt-1 text-sm text-ink-700/60">
+          <p className="text-lg font-extrabold text-foreground">Menunggu Pembayaran</p>
+          <p className="mt-1 text-sm text-ink-soft/60">
             Selesaikan pembayaran sebelum batas waktu habis.
           </p>
         </div>
@@ -42,13 +42,13 @@ export function EwalletStatusCard({
           </svg>
         </span>
         <div>
-          <p className="text-base font-extrabold text-ink-900">{methodName}</p>
-          <p className="text-sm text-ink-700/60">{accountNumber}</p>
+          <p className="text-base font-extrabold text-foreground">{methodName}</p>
+          <p className="text-sm text-ink-soft/60">{accountNumber}</p>
         </div>
       </div>
 
-      <p className="mt-5 text-base font-extrabold text-ink-900">Cara Pembayaran</p>
-      <ol className="mt-2 list-decimal space-y-1.5 pl-5 text-sm text-ink-900/80">
+      <p className="mt-5 text-base font-extrabold text-foreground">Cara Pembayaran</p>
+      <ol className="mt-2 list-decimal space-y-1.5 pl-5 text-sm text-foreground/80">
         {instructions.map((step, i) => (
           <li key={i}>{step}</li>
         ))}

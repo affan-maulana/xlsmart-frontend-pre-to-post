@@ -2,13 +2,13 @@
 
 import { Suspense, useMemo, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { QueueBar } from '@/components/QueueBar';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import { QueueBar } from '@/components/molecules/queue-bar';
+import { Breadcrumb } from '@/components/atoms/breadcrumb';
 import { PaymentMethodSelector } from '@/components/reload/PaymentMethodSelector';
 import { PaketUtamaSelector } from '@/components/reload/PaketUtamaSelector';
 import { PaketUtamaModal } from '@/components/reload/PaketUtamaModal'; // ⬅️ tambahkan
-import { MandatoryInfoPanel } from '@/components/reload/MandatoryInfoPanel';
-import { ServicePlaybookPanel } from '@/components/reload/ServicePlaybookPanel';
+import { MandatoryInfoPanel } from '@/components/organisms/mandatory-info-panel';
+import { ServicePlaybookPanel } from '@/components/organisms/service-playbook-panel';
 import {
   agentQueue,
   paymentMethodGroups,
@@ -81,21 +81,21 @@ function PembayaranContent() {
     <main className="p-5 sm:p-6">
       <Breadcrumb trail={['Home', 'Isi Pulsa', 'Pembayaran']} />
 
-      <h1 className="mt-4 text-3xl font-extrabold text-ink-900">Pembayaran</h1>
+      <h1 className="mt-4 text-3xl font-extrabold text-foreground">Pembayaran</h1>
 
       <div className="mt-6 grid grid-cols-1 rounded-2xl border border-black/10 bg-white p-5 sm:grid-cols-3 sm:p-6">
         <div className="border-black/10 pb-4 sm:border-r sm:pb-0 sm:pr-6">
-          <p className="text-sm text-ink-700/60">MSISDN</p>
-          <p className="mt-1 text-xl font-bold text-ink-900">{msisdn}</p>
-          {email && <p className="mt-0.5 text-xs text-ink-700/50">{email}</p>}
+          <p className="text-sm text-ink-soft/60">MSISDN</p>
+          <p className="mt-1 text-xl font-bold text-foreground">{msisdn}</p>
+          {email && <p className="mt-0.5 text-xs text-ink-soft/50">{email}</p>}
         </div>
         <div className="border-black/10 py-4 sm:border-r sm:py-0 sm:px-6">
-          <p className="text-sm text-ink-700/60">Pembelian</p>
-          <p className="mt-1 text-xl font-bold text-ink-900">{pembelian}</p>
+          <p className="text-sm text-ink-soft/60">Pembelian</p>
+          <p className="mt-1 text-xl font-bold text-foreground">{pembelian}</p>
         </div>
         <div className="pt-4 sm:pt-0 sm:pl-6">
-          <p className="text-sm text-ink-700/60">Tagihan</p>
-          <p className="mt-1 text-xl font-bold text-ink-900">{formatRupiah(baseTagihan)}</p>
+          <p className="text-sm text-ink-soft/60">Tagihan</p>
+          <p className="mt-1 text-xl font-bold text-foreground">{formatRupiah(baseTagihan)}</p>
         </div>
       </div>
 
@@ -139,7 +139,7 @@ function PembayaranContent() {
             type="button"
             disabled={!canPay}
             onClick={handleOpenPayment}
-            className="w-full rounded-lg bg-brand-indigo px-5 py-3 text-sm font-bold text-white hover:bg-brand-indigo/90 disabled:cursor-not-allowed disabled:opacity-40"
+            className="w-full rounded-lg bg-primary px-5 py-3 text-sm font-bold text-white hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40"
           >
             Bayar
           </button>
@@ -164,7 +164,7 @@ function PembayaranContent() {
 
 export default function PembayaranPage() {
   return (
-    <div className="flex h-screen bg-[#F4F5F9]">
+    <div className="flex h-screen bg-muted">
       <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
         <QueueBar queue={agentQueue} />
 

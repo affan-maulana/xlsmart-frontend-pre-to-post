@@ -37,7 +37,7 @@ export function PhoneNumberListWna({
 
   return (
     <section className="p-5 sm:p-6">
-      <h3 className="text-lg font-bold text-ink-900">
+      <h3 className="text-lg font-bold text-foreground">
         Nomor Pelanggan Terdaftar ({numbers.length})
       </h3>
 
@@ -57,12 +57,12 @@ export function PhoneNumberListWna({
                   number.iconOnly ? 'px-2.5' : 'px-4'
                 } ${
                   isSelected
-                    ? 'border-brand-indigo bg-brand-indigo/5 text-brand-indigo'
+                    ? 'border-primary bg-primary/5 text-primary'
                     : isSuspend
-                      ? 'border-black/10 text-ink-700/40'
+                      ? 'border-black/10 text-ink-soft/40'
                       : isNonaktif
-                        ? 'border-black/10 text-ink-700/70'
-                        : 'border-black/10 text-ink-700/80 hover:border-brand-indigo/40'
+                        ? 'border-black/10 text-ink-soft/70'
+                        : 'border-black/10 text-ink-soft/80 hover:border-primary/40'
                 }`}
               >
                 <ProviderIconWna number={number} />
@@ -91,7 +91,7 @@ export function PhoneNumberListWna({
           <button
             type="button"
             onClick={handleViewAll}
-            className="inline-flex shrink-0 items-center gap-2 rounded-lg border-2 border-brand-indigo px-4 py-2.5 text-sm font-bold text-brand-indigo"
+            className="inline-flex shrink-0 items-center gap-2 rounded-lg border-2 border-primary px-4 py-2.5 text-sm font-bold text-primary"
           >
             <LayoutGrid size={16} />
             Lihat Semua {totalCount}

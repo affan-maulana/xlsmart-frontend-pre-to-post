@@ -34,11 +34,11 @@ export function VirtualAccountStatusCard({
   }
 
   return (
-    <div className="mt-8 max-w-2xl rounded-2xl border border-black/10 bg-[#FAFAFB] p-5 sm:p-6">
+    <div className="mt-8 max-w-2xl rounded-2xl border border-black/10 bg-faint p-5 sm:p-6">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="text-lg font-extrabold text-ink-900">Menunggu Pembayaran</p>
-          <p className="mt-1 text-sm text-ink-700/60">
+          <p className="text-lg font-extrabold text-foreground">Menunggu Pembayaran</p>
+          <p className="mt-1 text-sm text-ink-soft/60">
             Selesaikan pembayaran sebelum batas waktu habis.
           </p>
         </div>
@@ -51,21 +51,21 @@ export function VirtualAccountStatusCard({
             {bankName.slice(0, 3).toUpperCase()}
           </span>
           <div>
-            <p className="text-base font-extrabold text-ink-900">{bankName}</p>
-            <p className="text-sm text-ink-700/60">{vaNumber}</p>
+            <p className="text-base font-extrabold text-foreground">{bankName}</p>
+            <p className="text-sm text-ink-soft/60">{vaNumber}</p>
           </div>
         </div>
         <button
           type="button"
           onClick={handleCopy}
-          className="flex items-center gap-1.5 text-sm font-bold text-brand-link"
+          className="flex items-center gap-1.5 text-sm font-bold text-info"
         >
           {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
           {copied ? 'Tersalin' : 'Salin'}
         </button>
       </div>
 
-      <p className="mt-5 text-base font-extrabold text-ink-900">Cara Pembayaran</p>
+      <p className="mt-5 text-base font-extrabold text-foreground">Cara Pembayaran</p>
 
       <div className="mt-2 flex gap-6 border-b border-black/10">
         {tabs.map((tab) => (
@@ -75,8 +75,8 @@ export function VirtualAccountStatusCard({
             onClick={() => setActiveTab(tab.id)}
             className={`-mb-px border-b-2 pb-2 text-sm font-bold ${
               activeTab === tab.id
-                ? 'border-brand-indigo text-brand-indigo'
-                : 'border-transparent text-ink-700/40'
+                ? 'border-primary text-primary'
+                : 'border-transparent text-ink-soft/40'
             }`}
           >
             {tab.label}
@@ -84,7 +84,7 @@ export function VirtualAccountStatusCard({
         ))}
       </div>
 
-      <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm text-ink-900/80">
+      <ol className="mt-3 list-decimal space-y-1.5 pl-5 text-sm text-foreground/80">
         {activeSteps.map((step, i) => (
           <li key={i}>{step}</li>
         ))}

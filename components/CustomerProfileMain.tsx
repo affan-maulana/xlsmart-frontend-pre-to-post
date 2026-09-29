@@ -1,11 +1,11 @@
 'use client';
 
 import { useState, type ComponentProps } from 'react';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import { Breadcrumb } from '@/components/atoms/breadcrumb';
 import { CustomerIdentityCard } from '@/components/CustomerIdentityCard';
 import { SubscriptionSummaryBar } from '@/components/SubscriptionSummaryBar';
 import { AlertRow } from '@/components/AlertRow';
-import { PhoneNumberList } from '@/components/nomorpelanggan/PhoneNumberList';
+import { PhoneNumberList } from '@/components/organisms/phone-number-list';
 import { LihatProfilLainModal } from '@/components/LihatProfilLainModal';
 import { getNumbersByNik, registeredPhoneNumbersTotal } from '@/lib/mockData';
 import type { PhoneNumber } from '@/lib/types';

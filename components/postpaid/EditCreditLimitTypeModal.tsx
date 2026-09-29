@@ -36,13 +36,13 @@ export function EditCreditLimitTypeModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
       <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
         <div className="flex items-start justify-between">
-          <h4 className="w-full text-center text-lg font-bold text-ink-900">
+          <h4 className="w-full text-center text-lg font-bold text-foreground">
             {step === 'edit' ? 'Ubah Tipe Kredit Limit' : 'Tipe Kredit Limit'}
           </h4>
           <button
             type="button"
             onClick={onClose}
-            className="-mt-1 -mr-1 ml-2 rounded-full p-1 text-ink-900 hover:bg-black/5"
+            className="-mt-1 -mr-1 ml-2 rounded-full p-1 text-foreground hover:bg-black/5"
             aria-label="Tutup"
           >
             <X size={18} />
@@ -51,21 +51,21 @@ export function EditCreditLimitTypeModal({
 
         {step === 'edit' ? (
           <>
-            <p className="mt-4 text-base font-bold text-ink-900">
+            <p className="mt-4 text-base font-bold text-foreground">
               Apakah anda yakin ingin mengubah tipe kredit limit pelanggan ke {newType}?
             </p>
 
             <div className="mt-5 flex items-center gap-3">
               <div className="flex-1">
-                <p className="mb-1 text-sm text-ink-700/60">Tipe Kredit Limit Lama</p>
-                <div className="rounded-lg border border-black/10 px-3 py-2.5 text-sm font-semibold text-ink-900">
+                <p className="mb-1 text-sm text-ink-soft/60">Tipe Kredit Limit Lama</p>
+                <div className="rounded-lg border border-black/10 px-3 py-2.5 text-sm font-semibold text-foreground">
                   {currentType}
                 </div>
               </div>
-              <ArrowRight size={18} className="mt-5 shrink-0 text-ink-700/40" />
+              <ArrowRight size={18} className="mt-5 shrink-0 text-ink-soft/40" />
               <div className="flex-1">
-                <p className="mb-1 text-sm text-ink-700/60">Tipe Kredit Limit Baru</p>
-                <div className="rounded-lg border border-brand-indigo bg-brand-indigo/5 px-3 py-2.5 text-sm font-semibold text-brand-indigo">
+                <p className="mb-1 text-sm text-ink-soft/60">Tipe Kredit Limit Baru</p>
+                <div className="rounded-lg border border-primary bg-primary/5 px-3 py-2.5 text-sm font-semibold text-primary">
                   {newType}
                 </div>
               </div>
@@ -75,14 +75,14 @@ export function EditCreditLimitTypeModal({
               <button
                 type="button"
                 onClick={onClose}
-                className="flex-1 rounded-lg border border-brand-indigo px-4 py-2.5 text-sm font-semibold text-brand-indigo hover:bg-brand-indigo/5"
+                className="flex-1 rounded-lg border border-primary px-4 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5"
               >
                 Batal
               </button>
               <button
                 type="button"
                 onClick={handleConfirm}
-                className="flex-1 rounded-lg bg-brand-indigo px-4 py-2.5 text-sm font-semibold text-white hover:bg-brand-indigo/90"
+                className="flex-1 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary/90"
               >
                 Ubah
               </button>
@@ -96,18 +96,18 @@ export function EditCreditLimitTypeModal({
                   <Check size={28} strokeWidth={3} className="text-white" />
                 </div>
               </div>
-              <p className="mt-4 text-base font-bold text-ink-900">
+              <p className="mt-4 text-base font-bold text-foreground">
                 Tipe Kredit Limit Berhasil diupdate
               </p>
-              <p className="mt-1 text-sm text-ink-700/60">
+              <p className="mt-1 text-sm text-ink-soft/60">
                 Tipe Kredit Limit berhasil diupdate menjadi{' '}
-                <span className="font-semibold text-ink-900">{newType}</span>
+                <span className="font-semibold text-foreground">{newType}</span>
               </p>
             </div>
             <button
               type="button"
               onClick={handleFinish}
-              className="mt-6 w-full rounded-lg bg-brand-indigo px-4 py-3 text-sm font-semibold text-white hover:bg-brand-indigo/90"
+              className="mt-6 w-full rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white hover:bg-primary/90"
             >
               Kembali
             </button>

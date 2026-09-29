@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { QueueBar } from '@/components/QueueBar';
+import { QueueBar } from '@/components/molecules/queue-bar';
 import { PlanDetailCardWna } from '@/components/wna/PlanDetailCardWna';
 import { MetricPanel } from '@/components/MetricPanel';
 import { TransactionHistoryRow } from '@/components/TransactionHistoryRow';
@@ -25,7 +25,7 @@ export default function CustomerProfilePage() {
   const [selectedNumber, setSelectedNumber] = useState<PhoneNumber | null>(null);
 
   return (
-    <div className="flex h-screen bg-[#F4F5F9]">
+    <div className="flex h-screen bg-muted">
       <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
         <QueueBar queue={agentQueue} />
 

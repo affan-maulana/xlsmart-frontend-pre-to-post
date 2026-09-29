@@ -39,7 +39,7 @@ export function LihatProfilLainModal({ onLookup }: LihatProfilLainModalProps) {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between">
-              <h2 className="text-base font-bold text-ink-900">Lihat Profil Lain</h2>
+              <h2 className="text-base font-bold text-foreground">Lihat Profil Lain</h2>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
@@ -51,14 +51,14 @@ export function LihatProfilLainModal({ onLookup }: LihatProfilLainModalProps) {
             </div>
 
             <div className="mt-5">
-              <h3 className="text-xl font-extrabold text-ink-900">Lihat Profil Lain</h3>
-              <p className="mt-1 text-sm text-ink-700/60">
+              <h3 className="text-xl font-extrabold text-foreground">Lihat Profil Lain</h3>
+              <p className="mt-1 text-sm text-ink-soft/60">
                 Lihat profil lain dengan memasukkan informasi pelanggan
               </p>
             </div>
 
             <div className="mt-5">
-              <label className="text-sm font-medium text-ink-900">
+              <label className="text-sm font-medium text-foreground">
                 NIK, MSISDN atau ID XL Satu
               </label>
               <input
@@ -66,14 +66,14 @@ export function LihatProfilLainModal({ onLookup }: LihatProfilLainModalProps) {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="317282319920022"
-                className="mt-2 w-full rounded-lg border border-black/10 px-4 py-2.5 text-sm text-ink-900 outline-none focus:border-brand-indigo"
+                className="mt-2 w-full rounded-lg border border-black/10 px-4 py-2.5 text-sm text-foreground outline-none focus:border-primary"
               />
             </div>
 
             <button
               type="button"
               onClick={handleSubmit}
-              className="mt-5 w-full rounded-lg bg-brand-indigo py-3 text-sm font-semibold text-white hover:opacity-90"
+              className="mt-5 w-full rounded-lg bg-primary py-3 text-sm font-semibold text-white hover:opacity-90"
             >
               Lihat Profile
             </button>

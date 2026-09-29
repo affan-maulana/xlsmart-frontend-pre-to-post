@@ -76,20 +76,20 @@ export function TransactionSummaryCard({
   const { icon: Icon, bg } = STATUS_CONFIG[status];
 
   return (
-    <div className="rounded-2xl border border-black/10 bg-[#FAFAFB] p-6 sm:p-7">
+    <div className="rounded-2xl border border-black/10 bg-faint p-6 sm:p-7">
       <div className="flex flex-col items-center text-center">
         <div className={`flex h-16 w-16 items-center justify-center rounded-full ${bg}`}>
           <Icon className="h-9 w-9 text-white" strokeWidth={2.25} />
         </div>
-        <h2 className="mt-4 text-xl font-extrabold text-ink-900">{title}</h2>
-        {subtitle && <p className="mt-1 text-sm text-ink-700/60">{subtitle}</p>}
+        <h2 className="mt-4 text-xl font-extrabold text-foreground">{title}</h2>
+        {subtitle && <p className="mt-1 text-sm text-ink-soft/60">{subtitle}</p>}
       </div>
 
       <div className="mt-6 divide-y divide-black/10">
         {fields.map((field) => (
           <div key={field.label} className="flex items-center justify-between gap-4 py-3">
-            <span className="text-sm text-ink-700/60">{field.label}</span>
-            <span className="text-right text-sm font-extrabold text-ink-900">{field.value}</span>
+            <span className="text-sm text-ink-soft/60">{field.label}</span>
+            <span className="text-right text-sm font-extrabold text-foreground">{field.value}</span>
           </div>
         ))}
       </div>
@@ -101,17 +101,17 @@ export function TransactionStatusTimeline({ steps }: { steps: TransactionStatusS
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="mt-5 rounded-2xl border border-black/10 bg-[#FAFAFB] p-6 sm:p-7">
+    <div className="mt-5 rounded-2xl border border-black/10 bg-faint p-6 sm:p-7">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         className="flex w-full items-center justify-between"
       >
-        <h3 className="text-lg font-extrabold text-ink-900">Status Transaksi</h3>
+        <h3 className="text-lg font-extrabold text-foreground">Status Transaksi</h3>
         {open ? (
-          <ChevronUp className="h-5 w-5 text-ink-900" />
+          <ChevronUp className="h-5 w-5 text-foreground" />
         ) : (
-          <ChevronDown className="h-5 w-5 text-ink-900" />
+          <ChevronDown className="h-5 w-5 text-foreground" />
         )}
       </button>
 
@@ -124,10 +124,10 @@ export function TransactionStatusTimeline({ steps }: { steps: TransactionStatusS
               )}
               <StepIcon status={step.status} />
               <div className="flex-1 pt-0.5">
-                <p className="font-bold text-ink-900">{step.label}</p>
-                {step.timestamp && <p className="text-xs text-ink-700/40">{step.timestamp}</p>}
+                <p className="font-bold text-foreground">{step.label}</p>
+                {step.timestamp && <p className="text-xs text-ink-soft/40">{step.timestamp}</p>}
                 {step.description && (
-                  <p className="mt-1 whitespace-pre-line text-sm text-ink-700/70">
+                  <p className="mt-1 whitespace-pre-line text-sm text-ink-soft/70">
                     {step.description}
                   </p>
                 )}
@@ -156,14 +156,14 @@ export function TransactionStatusActions({
         <button
           type="button"
           onClick={onUpdateStatus}
-          className="rounded-lg border-2 border-brand-indigo px-6 py-3 text-sm font-bold text-brand-indigo hover:bg-brand-indigo/5"
+          className="rounded-lg border-2 border-primary px-6 py-3 text-sm font-bold text-primary hover:bg-primary/5"
         >
           Perbaharui Status
         </button>
         <button
           type="button"
           onClick={onSelesai}
-          className="rounded-lg bg-brand-indigo px-6 py-3 text-sm font-bold text-white hover:bg-brand-indigo/90"
+          className="rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90"
         >
           Selesai
         </button>
@@ -175,7 +175,7 @@ export function TransactionStatusActions({
     <button
       type="button"
       onClick={onSelesai}
-      className="mt-5 w-full rounded-lg bg-brand-indigo px-6 py-3 text-sm font-bold text-white hover:bg-brand-indigo/90"
+      className="mt-5 w-full rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90"
     >
       Selesai
     </button>

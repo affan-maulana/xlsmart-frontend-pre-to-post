@@ -69,19 +69,19 @@ function NumberRow({
     <button
       type="button"
       onClick={() => onSelect?.(number)}
-      className="flex w-full items-center justify-between gap-3 rounded-xl border border-black/5 bg-black/[0.015] px-4 py-3 text-left transition-colors hover:border-brand-indigo/30"
+      className="flex w-full items-center justify-between gap-3 rounded-xl border border-black/5 bg-black/[0.015] px-4 py-3 text-left transition-colors hover:border-primary/30"
     >
       <div className="flex min-w-0 items-center gap-3">
         <ProviderIconWna number={number} size="md" />
         <div className="min-w-0">
-          <p className="truncate text-sm text-ink-700/60">{label}</p>
-          <p className="mt-0.5 text-lg font-extrabold text-ink-900">{number.msisdn}</p>
+          <p className="truncate text-sm text-ink-soft/60">{label}</p>
+          <p className="mt-0.5 text-lg font-extrabold text-foreground">{number.msisdn}</p>
         </div>
       </div>
 
       <div className="flex shrink-0 items-center gap-3">
         <StatusBadge status={status} />
-        <ChevronRight size={18} className="text-ink-700/30" />
+        <ChevronRight size={18} className="text-ink-soft/30" />
       </div>
     </button>
   );
@@ -100,7 +100,7 @@ export function AllNumbersModalWna({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
       <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl bg-white p-6 shadow-xl [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
         <div className="flex items-start justify-between">
-          <h4 className="w-full text-center text-lg font-bold text-ink-900">Semua Nomor</h4>
+          <h4 className="w-full text-center text-lg font-bold text-foreground">Semua Nomor</h4>
           <button
             type="button"
             onClick={onClose}
@@ -111,13 +111,13 @@ export function AllNumbersModalWna({
           </button>
         </div>
 
-        <p className="mt-5 text-xl font-bold text-ink-900">
+        <p className="mt-5 text-xl font-bold text-foreground">
           {customerName} • {numbers.length} Nomor
         </p>
 
         {activeNumbers.length > 0 && (
           <div className="mt-5">
-            <p className="mb-3 text-sm font-bold text-ink-900">
+            <p className="mb-3 text-sm font-bold text-foreground">
               Nomor Aktif ({activeNumbers.length} Nomor)
             </p>
             <div className="flex flex-col gap-3">
@@ -130,7 +130,7 @@ export function AllNumbersModalWna({
 
         {inactiveNumbers.length > 0 && (
           <div className="mt-6">
-            <p className="mb-3 text-sm font-bold text-ink-900">
+            <p className="mb-3 text-sm font-bold text-foreground">
               Nonaktif ({inactiveNumbers.length} Nomor)
             </p>
             <div className="flex flex-col gap-3">

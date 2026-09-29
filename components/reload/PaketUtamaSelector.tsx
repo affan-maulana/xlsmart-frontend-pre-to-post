@@ -30,11 +30,11 @@ export function PaketUtamaSelector({
   return (
     <div className="rounded-2xl border border-black/10 bg-white p-5 sm:p-6">
       <div className="flex items-center justify-between">
-        <p className="text-base font-bold text-ink-900">Pilih Paket Utama</p>
+        <p className="text-base font-bold text-foreground">Pilih Paket Utama</p>
         <button
           type="button"
           onClick={onLihatSemuaPaket}
-          className="text-sm font-bold text-brand-link"
+          className="text-sm font-bold text-info"
         >
           Lihat Semua Paket
         </button>
@@ -51,13 +51,13 @@ export function PaketUtamaSelector({
               type="button"
               onClick={() => onSelect(paket)}
               className={`relative rounded-xl border-2 p-4 pt-5 text-left transition-colors ${
-                isSelected ? 'border-transparent' : 'border-black/10 hover:border-brand-indigo/40'
+                isSelected ? 'border-transparent' : 'border-black/10 hover:border-primary/40'
               }`}
               style={
                 isSelected
                   ? {
                       backgroundImage:
-                        'linear-gradient(white, white), linear-gradient(0deg, #1E22AA 0%, #E5005A 100%)',
+                        'linear-gradient(white, white), var(--gradient-brand)',
                       backgroundOrigin: 'border-box',
                       backgroundClip: 'padding-box, border-box',
                     }
@@ -84,20 +84,20 @@ export function PaketUtamaSelector({
                 {logoSrc && (
                   <img src={logoSrc} alt={paket.provider} className="h-4 w-4 object-contain" />
                 )}
-                <p className="text-xs font-semibold text-ink-700/60">• {paket.planName}</p>
+                <p className="text-xs font-semibold text-ink-soft/60">• {paket.planName}</p>
               </div>
 
-              <p className="mt-1 text-xl font-extrabold text-ink-900">{paket.quotaLabel}</p>
-              <p className="mt-0.5 text-xs text-ink-700/50">
+              <p className="mt-1 text-xl font-extrabold text-foreground">{paket.quotaLabel}</p>
+              <p className="mt-0.5 text-xs text-ink-soft/50">
                 {paket.durationLabel} • {paket.locationLabel}
               </p>
 
               {paket.originalPrice && (
-                <p className="mt-3 text-xs text-ink-700/40 line-through">
+                <p className="mt-3 text-xs text-ink-soft/40 line-through">
                   {formatRupiah(paket.originalPrice)}
                 </p>
               )}
-              <p className="text-sm font-bold text-brand-link">{formatRupiah(paket.price)}</p>
+              <p className="text-sm font-bold text-info">{formatRupiah(paket.price)}</p>
             </button>
           );
         })}
@@ -106,7 +106,7 @@ export function PaketUtamaSelector({
       <button
         type="button"
         onClick={onTanyaPreferensi}
-        className="mt-4 w-full rounded-lg border-2 border-brand-indigo px-4 py-3 text-sm font-bold text-brand-indigo hover:bg-brand-indigo/5"
+        className="mt-4 w-full rounded-lg border-2 border-primary px-4 py-3 text-sm font-bold text-primary hover:bg-primary/5"
       >
         Tanya Preferensi Paket
       </button>

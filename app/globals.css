@@ -2,31 +2,166 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+/* ════════════════════════════════════════════════════════════════════════
+   XLSMART design tokens — semantic CSS variables (shadcn-compatible).
+
+   Architecture (mirrors components/design-tokens/):
+   1. RAW PALETTE  — literal brand values live here and ONLY here.
+   2. SEMANTIC     — role aliases (`--primary`, `--muted-foreground`, …)
+                     reference the palette; components consume roles via
+                     Tailwind utilities, never raw values.
+
+   Values are HSL channel triplets (no `hsl()` wrapper) so Tailwind can
+   apply opacity modifiers: `bg-primary/10`.
+
+   Drift between these values and components/design-tokens/colors.ts is
+   checked by: node components/design-tokens/scripts/verify-tokens.mjs
+
+   MFE note: this `:root` block is framework-agnostic and is intended to
+   ship as `tokens.css` when the system is extracted to
+   `packages/design-tokens`.
+   ════════════════════════════════════════════════════════════════════════ */
+@layer base {
+  :root {
+    /* ── Raw palette ─────────────────────────────────────────────────── */
+    --color-white: 0 0% 100%;
+    --color-ink: 227 39% 9%; /* #0E1220 */
+    --color-ink-soft: 234 29% 19%; /* #232640 */
+    --color-ink-muted: 238 16% 55%; /* #7B7CA0 — secondary text */
+    --color-indigo: 238 70% 39%; /* #1E22AA brand primary */
+    --color-magenta: 336 100% 45%; /* #E5005A brand accent */
+    --color-purple: 266 58% 39%; /* #5B2A9D */
+    --color-link: 241 87% 59%; /* #3D3AF1 link/price blue */
+    --color-page: 228 29% 97%; /* #F4F5F9 app background */
+    --color-faint: 0 0% 98%; /* #FAFAFA subtle fills */
+    --color-tint-indigo: 237 100% 96%; /* #EDEEFF selected/hover tint */
+    --color-border: 240 7% 86%; /* #DADADF */
+    --color-border-strong: 240 7% 79%; /* #C6C6CD inputs on hover */
+    --color-success: 149 72% 37%; /* #1AA35C */
+    --color-success-bg: 146 50% 94%; /* #E7F7EE */
+    --color-warning: 41 100% 39%; /* #C98A00 */
+    --color-warning-bg: 42 89% 93%; /* #FDF3DC */
+    --color-warning-surface: 39 100% 84%; /* #FFE3AE info-panel surface */
+    --color-destructive: 339 67% 52%; /* #D6316B */
+    --color-destructive-bg: 341 76% 95%; /* #FCE9EF */
+    --color-overlay: 0 0% 0%; /* dialog scrim base */
+
+    /* ── Semantic aliases ────────────────────────────────────────────── */
+    --background: var(--color-page);
+    --foreground: var(--color-ink);
+
+    --card: var(--color-white);
+    --card-foreground: var(--color-ink);
+
+    --popover: var(--color-white);
+    --popover-foreground: var(--color-ink);
+
+    --primary: var(--color-indigo);
+    --primary-foreground: var(--color-white);
+
+    --secondary: var(--color-faint);
+    --secondary-foreground: var(--color-ink-soft);
+
+    --muted: var(--color-page);
+    --muted-foreground: var(--color-ink-muted);
+
+    --accent: var(--color-tint-indigo);
+    --accent-foreground: var(--color-indigo);
+
+    --destructive: var(--color-destructive);
+    --destructive-foreground: var(--color-white);
+    --destructive-subtle: var(--color-destructive-bg);
+
+    --success: var(--color-success);
+    --success-foreground: var(--color-white);
+    --success-subtle: var(--color-success-bg);
+
+    --warning: var(--color-warning);
+    --warning-foreground: var(--color-white);
+    --warning-subtle: var(--color-warning-bg);
+    --warning-surface: var(--color-warning-surface);
+
+    --info: var(--color-link);
+    --info-foreground: var(--color-white);
+    --info-subtle: var(--color-tint-indigo);
+
+    --border: var(--color-border);
+    --input: var(--color-border);
+    --ring: var(--color-indigo);
+
+    --overlay: var(--color-overlay);
+    --surface-faint: var(--color-faint);
+
+    /* ── Gradient ────────────────────────────────────────────────────── */
+    --gradient-brand: linear-gradient(
+      150deg,
+      hsl(var(--color-magenta)) -40%,
+      hsl(var(--color-indigo)) 100%
+    );
+
+    /* ── Radius scale ────────────────────────────────────────────────── */
+    --radius-sm: 4px;
+    --radius-md: 6px;
+    --radius-lg: 8px;
+    --radius-xl: 12px;
+    --radius-card: 16px;
+    --radius-pill: 999px;
+
+    /* ── Elevation ───────────────────────────────────────────────────── */
+    --shadow-card: 0 1px 2px rgb(16 20 40 / 0.06), 0 1px 0 rgb(16 20 40 / 0.04);
+    --shadow-overlay: 0 8px 16px -4px rgb(16 20 40 / 0.08), 0 16px 32px -8px rgb(16 20 40 / 0.16);
+
+    --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html,
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  ::selection {
+    background-color: hsl(var(--color-magenta) / 0.2);
+  }
+
+  /* Visible keyboard focus for accessibility */
+  a:focus-visible,
+  button:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: var(--radius-md);
+  }
 }
 
-html,
-body {
-  background-color: #f4f5f9;
-  color: #171a2b;
-}
+@layer components {
+  /* Page-level display heading (Prepaid to Postpaid, profile names…) */
+  .text-display {
+    @apply text-3xl font-extrabold tracking-tight text-foreground;
+  }
 
-* {
-  box-sizing: border-box;
-}
+  /* Section heading inside a panel */
+  .text-section-title {
+    @apply text-lg font-bold text-foreground;
+  }
 
-::selection {
-  background-color: #e5005a33;
-}
+  /* Quiet helper/caption text */
+  .text-meta {
+    @apply text-xs text-muted-foreground;
+  }
 
-/* Visible keyboard focus for accessibility */
-a:focus-visible,
-button:focus-visible,
-[tabindex]:focus-visible {
-  outline: 2px solid #1e22aa;
-  outline-offset: 2px;
-  border-radius: 6px;
+  /* Scrollable rows that must not show a scrollbar (number carousel, dialogs) */
+  .scrollbar-none {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

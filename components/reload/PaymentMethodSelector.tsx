@@ -44,14 +44,14 @@ export function PaymentMethodSelector({
   return (
     <div className="overflow-hidden rounded-2xl border border-black/10 bg-white">
       <div className="p-5 sm:p-6">
-        <p className="text-lg font-bold text-ink-900">Pilih Metode Pembayaran</p>
+        <p className="text-lg font-bold text-foreground">Pilih Metode Pembayaran</p>
 
         <div className="mt-5 flex flex-col gap-5">
           {groups.map((group) => {
             const Icon = groupIcon[group.title] ?? Wallet;
             return (
               <div key={group.id}>
-                <p className="mb-3 text-sm font-semibold text-ink-900/70">{group.title}</p>
+                <p className="mb-3 text-sm font-semibold text-foreground/70">{group.title}</p>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
                   {group.methods.map((method) => {
                     const isSelected = method.id === selectedId;
@@ -63,20 +63,20 @@ export function PaymentMethodSelector({
                         className={`flex items-center gap-3 rounded-xl border-2 px-4 py-3.5 text-left transition-colors ${
                           isSelected
                             ? 'border-transparent'
-                            : 'border-black/10 hover:border-brand-indigo/40'
+                            : 'border-black/10 hover:border-primary/40'
                         }`}
                         style={
                           isSelected
                             ? {
                                 backgroundImage:
-                                  'linear-gradient(white, white), linear-gradient(0deg, #1E22AA 0%, #E5005A 100%)',
+                                  'linear-gradient(white, white), var(--gradient-brand)',
                                 backgroundOrigin: 'border-box',
                                 backgroundClip: 'padding-box, border-box',
                               }
                             : undefined
                         }
                       >
-                        <span className="flex h-8 w-8 shrink-0 items-center justify-center text-ink-700/70">
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center text-ink-soft/70">
                           {method.iconSrc ? (
                             <img
                               src={method.iconSrc}
@@ -88,10 +88,10 @@ export function PaymentMethodSelector({
                           )}
                         </span>
                         <span className="min-w-0">
-                          <span className="block truncate text-sm font-bold text-ink-900">
+                          <span className="block truncate text-sm font-bold text-foreground">
                             {method.name}
                           </span>
-                          <span className="block text-xs text-ink-700/50">
+                          <span className="block text-xs text-ink-soft/50">
                             {method.caption ??
                               (method.adminFee > 0
                                 ? `Admin ${formatRupiah(method.adminFee)}`
@@ -114,16 +114,16 @@ export function PaymentMethodSelector({
           <button
             type="button"
             onClick={onOpenDetail}
-            className="flex items-center gap-1.5 text-sm text-ink-700/50"
+            className="flex items-center gap-1.5 text-sm text-ink-soft/50"
           >
             Total Tagihan
             <ChevronDown size={16} />
           </button>
-          <p className="mt-1 text-xl font-extrabold text-ink-900">{formatRupiah(totalTagihan)}</p>
+          <p className="mt-1 text-xl font-extrabold text-foreground">{formatRupiah(totalTagihan)}</p>
         </div>
         <div className="border-l border-black/10 px-5 py-4 sm:px-6">
-          <p className="text-sm text-ink-700/50">Total Item</p>
-          <p className="mt-1 text-xl font-extrabold text-ink-900">{totalItem}</p>
+          <p className="text-sm text-ink-soft/50">Total Item</p>
+          <p className="mt-1 text-xl font-extrabold text-foreground">{totalItem}</p>
         </div>
       </div>
     </div>

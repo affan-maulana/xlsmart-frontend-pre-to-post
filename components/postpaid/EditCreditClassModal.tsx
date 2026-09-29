@@ -45,11 +45,11 @@ export function EditCreditClassModal({
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
         <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
           <div className="flex items-start justify-between">
-            <h4 className="w-full text-center text-lg font-bold text-ink-900">Credit Class</h4>
+            <h4 className="w-full text-center text-lg font-bold text-foreground">Credit Class</h4>
             <button
               type="button"
               onClick={onClose}
-              className="-mt-1 -mr-1 ml-2 rounded-full p-1 text-ink-900 hover:bg-black/5"
+              className="-mt-1 -mr-1 ml-2 rounded-full p-1 text-foreground hover:bg-black/5"
               aria-label="Tutup"
             >
               <X size={18} />
@@ -62,18 +62,18 @@ export function EditCreditClassModal({
                 <Check size={28} strokeWidth={3} className="text-white" />
               </div>
             </div>
-            <p className="mt-4 text-base font-bold text-ink-900">Credit Class Berhasil diupdate</p>
-            <p className="mt-1 text-sm text-ink-700/60">
+            <p className="mt-4 text-base font-bold text-foreground">Credit Class Berhasil diupdate</p>
+            <p className="mt-1 text-sm text-ink-soft/60">
               Credit Class berhasil diupdate menjadi{' '}
-              <span className="font-semibold text-ink-900">{confirmedValue}</span> untuk pelanggan
-              dengan nomor <span className="font-semibold text-ink-900">{msisdn}</span>
+              <span className="font-semibold text-foreground">{confirmedValue}</span> untuk pelanggan
+              dengan nomor <span className="font-semibold text-foreground">{msisdn}</span>
             </p>
           </div>
 
           <button
             type="button"
             onClick={handleFinish}
-            className="mt-6 w-full rounded-lg bg-brand-indigo px-4 py-3 text-sm font-semibold text-white hover:bg-brand-indigo/90"
+            className="mt-6 w-full rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white hover:bg-primary/90"
           >
             Kembali
           </button>
@@ -86,41 +86,41 @@ export function EditCreditClassModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
       <div className="w-full max-w-2xl rounded-2xl bg-white p-6 shadow-xl">
         <div className="flex items-start justify-between">
-          <h4 className="w-full text-center text-lg font-bold text-ink-900">Credit Class</h4>
+          <h4 className="w-full text-center text-lg font-bold text-foreground">Credit Class</h4>
           <button
             type="button"
             onClick={onClose}
-            className="-mt-1 -mr-1 ml-2 rounded-full p-1 text-ink-900 hover:bg-black/5"
+            className="-mt-1 -mr-1 ml-2 rounded-full p-1 text-foreground hover:bg-black/5"
             aria-label="Tutup"
           >
             <X size={18} />
           </button>
         </div>
 
-        <p className="mt-4 text-base font-bold text-ink-900">Tipe Credit Class</p>
+        <p className="mt-4 text-base font-bold text-foreground">Tipe Credit Class</p>
 
         <div className="mt-4 rounded-xl border border-black/10 bg-black/[0.02] p-4">
           <div className="flex divide-x divide-black/10">
             <div className="flex-1 pr-4">
-              <p className="text-xs text-ink-700/50">MSISDN</p>
-              <p className="mt-1 text-sm font-bold text-ink-900">{msisdn}</p>
+              <p className="text-xs text-ink-soft/50">MSISDN</p>
+              <p className="mt-1 text-sm font-bold text-foreground">{msisdn}</p>
             </div>
             <div className="flex-1 pl-4">
-              <p className="text-xs text-ink-700/50">Email</p>
-              <p className="mt-1 text-sm font-bold text-ink-900">{email}</p>
+              <p className="text-xs text-ink-soft/50">Email</p>
+              <p className="mt-1 text-sm font-bold text-foreground">{email}</p>
             </div>
           </div>
         </div>
 
         <div className="mt-5">
-          <p className="mb-2 text-sm font-semibold text-ink-900">
+          <p className="mb-2 text-sm font-semibold text-foreground">
             Tipe Credit Class<span className="text-rose-500">*</span>
           </p>
           <div className="relative">
             <select
               value={selectedClass}
               onChange={(e) => setSelectedClass(e.target.value)}
-              className="w-full appearance-none rounded-lg border border-black/10 bg-white px-3 py-2.5 pr-9 text-sm font-semibold text-ink-900 focus:border-brand-indigo focus:outline-none"
+              className="w-full appearance-none rounded-lg border border-black/10 bg-white px-3 py-2.5 pr-9 text-sm font-semibold text-foreground focus:border-primary focus:outline-none"
             >
               {CREDIT_CLASS_OPTIONS.map((option) => (
                 <option key={option} value={option}>
@@ -130,7 +130,7 @@ export function EditCreditClassModal({
             </select>
             <ChevronDown
               size={16}
-              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-ink-700/50"
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-ink-soft/50"
             />
           </div>
         </div>
@@ -139,7 +139,7 @@ export function EditCreditClassModal({
           type="button"
           disabled={!canSubmit}
           onClick={handleUpdate}
-          className="mt-6 w-full rounded-lg bg-brand-indigo px-4 py-3 text-sm font-semibold text-white transition-opacity hover:bg-brand-indigo/90 disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-6 w-full rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white transition-opacity hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40"
         >
           Update
         </button>

@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { ChevronDown, Plus, Pencil, Eye, AlertCircle, Clock, RefreshCw } from 'lucide-react';
-import { Card } from '@/components/ui/Card';
+import { Card } from '@/components/ui/card';
 import { EditCreditLimitTypeModal } from './EditCreditLimitTypeModal';
 import { EditCreditClassModal } from './EditCreditClassModal';
 import { EditBillingDeliveryModal } from './EditBillingDeliveryModal';
@@ -42,51 +42,51 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
   return (
     <section className="p-5 sm:p-6">
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-bold text-ink-900">Detail Nomor Pelanggan</h3>
+        <h3 className="text-lg font-bold text-foreground">Detail Nomor Pelanggan</h3>
         <button
           type="button"
-          className="flex items-center gap-1.5 rounded-lg border border-brand-indigo px-4 py-2 text-sm font-semibold text-brand-indigo hover:bg-brand-indigo/5"
+          className="flex items-center gap-1.5 rounded-lg border border-primary px-4 py-2 text-sm font-semibold text-primary hover:bg-primary/5"
         >
           <Plus size={16} />
           Create Case
         </button>
       </div>
 
-      <Card className="mt-4" padded={false}>
+      <Card className="mt-4">
         <div className="grid grid-cols-2 gap-6 border-b border-black/5 p-5 pb-5 sm:grid-cols-3 sm:p-6 lg:grid-cols-5 lg:gap-0 lg:divide-x lg:divide-black/5">
           <div className="lg:px-6 lg:first:pl-0">
-            <p className="text-sm text-ink-700/60">Servis Plan</p>
-            <p className="mt-1 text-xl font-bold text-ink-900">{plan.planName}</p>
-            <p className="mt-0.5 text-xs text-ink-700/50">{plan.planType}</p>
+            <p className="text-sm text-ink-soft/60">Servis Plan</p>
+            <p className="mt-1 text-xl font-bold text-foreground">{plan.planName}</p>
+            <p className="mt-0.5 text-xs text-ink-soft/50">{plan.planType}</p>
           </div>
           <div className="lg:px-6">
-            <p className="flex items-center gap-2 text-sm text-ink-700/60">
+            <p className="flex items-center gap-2 text-sm text-ink-soft/60">
               Tipe Pelanggan
-              <span className="rounded-pill bg-black/5 px-2 py-0.5 text-[11px] font-semibold text-ink-700/70">
+              <span className="rounded-pill bg-black/5 px-2 py-0.5 text-[11px] font-semibold text-ink-soft/70">
                 {plan.customerTag}
               </span>
             </p>
-            <p className="mt-1 text-xl font-bold text-ink-900">{plan.customerType}</p>
-            <p className="mt-0.5 text-xs text-ink-700/50">Regular</p>
+            <p className="mt-1 text-xl font-bold text-foreground">{plan.customerType}</p>
+            <p className="mt-0.5 text-xs text-ink-soft/50">Regular</p>
           </div>
           <div className="lg:px-6">
-            <p className="text-sm text-ink-700/60">Servis Status</p>
-            <p className="mt-1 text-xl font-bold text-ink-900">{plan.serviceStatus}</p>
-            <p className="mt-0.5 text-xs text-ink-700/50">Dari {plan.activeSince}</p>
+            <p className="text-sm text-ink-soft/60">Servis Status</p>
+            <p className="mt-1 text-xl font-bold text-foreground">{plan.serviceStatus}</p>
+            <p className="mt-0.5 text-xs text-ink-soft/50">Dari {plan.activeSince}</p>
           </div>
           <div className="lg:px-6">
-            <p className="text-sm text-ink-700/60">Mobile Balance</p>
-            <p className="mt-1 text-xl font-bold text-ink-900">
+            <p className="text-sm text-ink-soft/60">Mobile Balance</p>
+            <p className="mt-1 text-xl font-bold text-foreground">
               Rp {formatRupiah(plan.mobileBalance)}
             </p>
-            <p className="mt-0.5 text-xs text-ink-700/50">{plan.billingCycle}</p>
+            <p className="mt-0.5 text-xs text-ink-soft/50">{plan.billingCycle}</p>
           </div>
           <div className="lg:px-6">
-            <p className="text-sm text-ink-700/60">ARPU</p>
-            <p className="mt-1 text-xl font-bold text-ink-900">
+            <p className="text-sm text-ink-soft/60">ARPU</p>
+            <p className="mt-1 text-xl font-bold text-foreground">
               Rp {formatRupiah(plan.averageArpu)}
             </p>
-            <p className="mt-0.5 text-xs text-ink-700/50">/ Bulan</p>
+            <p className="mt-0.5 text-xs text-ink-soft/50">/ Bulan</p>
           </div>
         </div>
 
@@ -98,7 +98,7 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
             </span>
             <button
               type="button"
-              className="flex items-center gap-1.5 text-sm font-semibold text-brand-link"
+              className="flex items-center gap-1.5 text-sm font-semibold text-info"
             >
               <RefreshCw size={14} />
               Reaktivasi Nomor
@@ -111,19 +111,19 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
                 <div className="flex flex-wrap items-center justify-between gap-4 px-5 py-5 sm:px-6">
                   <div className="flex items-center divide-x divide-black/5">
                     <div className="pr-8">
-                      <p className="text-sm text-ink-700/60">Billing Open</p>
-                      <p className="mt-1 text-xl font-bold text-ink-900">
+                      <p className="text-sm text-ink-soft/60">Billing Open</p>
+                      <p className="mt-1 text-xl font-bold text-foreground">
                         Rp {formatRupiah(plan.billingOpen)}
                       </p>
                     </div>
                     <div className="pl-8">
-                      <p className="text-sm text-ink-700/60">Jatuh Tempo</p>
-                      <p className="mt-1 text-xl font-bold text-ink-900">{plan.dueDate}</p>
+                      <p className="text-sm text-ink-soft/60">Jatuh Tempo</p>
+                      <p className="mt-1 text-xl font-bold text-foreground">{plan.dueDate}</p>
                     </div>
                   </div>
                   <button
                     type="button"
-                    className="rounded-lg border border-brand-indigo px-5 py-2.5 text-sm font-semibold text-brand-indigo hover:bg-brand-indigo/5"
+                    className="rounded-lg border border-primary px-5 py-2.5 text-sm font-semibold text-primary hover:bg-primary/5"
                   >
                     Bayar Tagihan
                   </button>
@@ -131,13 +131,13 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
 
                 <div className="grid grid-cols-1 gap-x-10 gap-y-4 px-5 py-5 sm:grid-cols-2 sm:px-6">
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Metode Pembayaran</span>
-                    <span className="flex items-center gap-1.5 text-sm font-bold text-brand-link">
+                    <span className="text-sm text-ink-soft/60">Metode Pembayaran</span>
+                    <span className="flex items-center gap-1.5 text-sm font-bold text-info">
                       {plan.paymentMethod}
                       <button
                         type="button"
                         onClick={() => setIsViewPaymentMethodOpen(true)}
-                        className="text-brand-link"
+                        className="text-info"
                         aria-label="Lihat Metode Pembayaran"
                       >
                         <Eye size={14} />
@@ -145,25 +145,25 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
                     </span>
                   </div>
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">ICCID</span>
-                    <span className="text-sm font-bold text-ink-900">{plan.iccid}</span>
+                    <span className="text-sm text-ink-soft/60">ICCID</span>
+                    <span className="text-sm font-bold text-foreground">{plan.iccid}</span>
                   </div>
 
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Estimasi Billing</span>
-                    <span className="flex items-center gap-1.5 text-sm font-bold text-brand-link">
+                    <span className="text-sm text-ink-soft/60">Estimasi Billing</span>
+                    <span className="flex items-center gap-1.5 text-sm font-bold text-info">
                       Rp {formatRupiah(plan.estimatedBilling)}
-                      <Pencil size={14} className="text-brand-link" />
+                      <Pencil size={14} className="text-info" />
                     </span>
                   </div>
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Kredit Limit</span>
-                    <span className="flex items-center gap-1.5 text-sm font-bold text-brand-link">
+                    <span className="text-sm text-ink-soft/60">Kredit Limit</span>
+                    <span className="flex items-center gap-1.5 text-sm font-bold text-info">
                       Rp {formatRupiah(creditLimit)}
                       <button
                         type="button"
                         onClick={() => setIsEditCreditLimitOpen(true)}
-                        className="text-brand-link"
+                        className="text-info"
                         aria-label="Update Kredit Limit"
                       >
                         <Pencil size={14} />
@@ -172,17 +172,17 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
                   </div>
 
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Unbill</span>
-                    <span className="text-sm font-bold text-ink-900">{plan.unbill}</span>
+                    <span className="text-sm text-ink-soft/60">Unbill</span>
+                    <span className="text-sm font-bold text-foreground">{plan.unbill}</span>
                   </div>
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">PPS Balance</span>
-                    <span className="flex items-center gap-1.5 text-sm font-bold text-brand-link">
+                    <span className="text-sm text-ink-soft/60">PPS Balance</span>
+                    <span className="flex items-center gap-1.5 text-sm font-bold text-info">
                       Rp {formatRupiah(ppsBalance)}
                       <button
                         type="button"
                         onClick={() => setIsEditPPSBalanceOpen(true)}
-                        className="text-brand-link"
+                        className="text-info"
                         aria-label="Update PPS Balance"
                       >
                         <Pencil size={14} />
@@ -191,20 +191,20 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
                   </div>
 
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Deposit</span>
-                    <span className="flex items-center gap-1.5 text-sm font-bold text-brand-link">
+                    <span className="text-sm text-ink-soft/60">Deposit</span>
+                    <span className="flex items-center gap-1.5 text-sm font-bold text-info">
                       Rp {formatRupiah(deposit)}
-                      <Pencil size={14} className="text-brand-link" />
+                      <Pencil size={14} className="text-info" />
                     </span>
                   </div>
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Credit Class</span>
-                    <span className="flex items-center gap-1.5 text-sm font-bold text-brand-link">
+                    <span className="text-sm text-ink-soft/60">Credit Class</span>
+                    <span className="flex items-center gap-1.5 text-sm font-bold text-info">
                       {creditClass}
                       <button
                         type="button"
                         onClick={() => setIsEditCreditClassOpen(true)}
-                        className="text-brand-link"
+                        className="text-info"
                         aria-label="Ubah Credit Class"
                       >
                         <Pencil size={14} />
@@ -213,17 +213,17 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
                   </div>
 
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Billing Cycle</span>
-                    <span className="text-sm font-bold text-ink-900">{plan.billingCycle}</span>
+                    <span className="text-sm text-ink-soft/60">Billing Cycle</span>
+                    <span className="text-sm font-bold text-foreground">{plan.billingCycle}</span>
                   </div>
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Tipe Kredit Limit</span>
-                    <span className="flex items-center gap-1.5 text-sm font-bold text-brand-link">
+                    <span className="text-sm text-ink-soft/60">Tipe Kredit Limit</span>
+                    <span className="flex items-center gap-1.5 text-sm font-bold text-info">
                       {creditLimitType}
                       <button
                         type="button"
                         onClick={() => setIsEditLimitTypeOpen(true)}
-                        className="text-brand-link"
+                        className="text-info"
                         aria-label="Ubah Tipe Kredit Limit"
                       >
                         <Pencil size={14} />
@@ -232,17 +232,17 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
                   </div>
 
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Grace Period</span>
-                    <span className="text-sm font-bold text-ink-900">{plan.gracePeriod}</span>
+                    <span className="text-sm text-ink-soft/60">Grace Period</span>
+                    <span className="text-sm font-bold text-foreground">{plan.gracePeriod}</span>
                   </div>
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Pengiriman Tagihan</span>
-                    <span className="flex items-center gap-1.5 text-sm font-bold text-brand-link">
+                    <span className="text-sm text-ink-soft/60">Pengiriman Tagihan</span>
+                    <span className="flex items-center gap-1.5 text-sm font-bold text-info">
                       {billingDelivery}
                       <button
                         type="button"
                         onClick={() => setIsEditBillingDeliveryOpen(true)}
-                        className="text-brand-link"
+                        className="text-info"
                         aria-label="Ubah Metode Pengiriman Tagihan"
                       >
                         <Pencil size={14} />
@@ -251,49 +251,49 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
                   </div>
 
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Dealer Balance</span>
-                    <span className="text-sm font-bold text-ink-900">
+                    <span className="text-sm text-ink-soft/60">Dealer Balance</span>
+                    <span className="text-sm font-bold text-foreground">
                       Rp {formatRupiah(plan.dealerBalance)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                    <span className="text-sm text-ink-700/60">Pembayaran Terakhir</span>
-                    <span className="text-sm font-bold text-ink-900">{plan.lastPayment}</span>
+                    <span className="text-sm text-ink-soft/60">Pembayaran Terakhir</span>
+                    <span className="text-sm font-bold text-foreground">{plan.lastPayment}</span>
                   </div>
                 </div>
 
                 <div className="px-5 py-5 sm:px-6">
-                  <p className="mb-4 text-sm font-semibold text-ink-700/60">Segmentasi</p>
+                  <p className="mb-4 text-sm font-semibold text-ink-soft/60">Segmentasi</p>
                   <div className="grid grid-cols-1 gap-x-10 gap-y-4 sm:grid-cols-2">
                     <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                      <span className="text-sm text-ink-700/60">FA ID</span>
-                      <span className="flex items-center gap-1.5 text-sm font-bold text-ink-900">
+                      <span className="text-sm text-ink-soft/60">FA ID</span>
+                      <span className="flex items-center gap-1.5 text-sm font-bold text-foreground">
                         {plan.faId}
-                        <Eye size={14} className="text-ink-700/40" />
+                        <Eye size={14} className="text-ink-soft/40" />
                       </span>
                     </div>
                     <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                      <span className="text-sm text-ink-700/60">Special Status</span>
-                      <span className="text-sm font-bold text-ink-900">
+                      <span className="text-sm text-ink-soft/60">Special Status</span>
+                      <span className="text-sm font-bold text-foreground">
                         {plan.specialStatus || '-'}
                       </span>
                     </div>
 
                     <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                      <span className="text-sm text-ink-700/60">Device IMSI</span>
-                      <span className="flex items-center gap-1.5 text-sm font-bold text-brand-link">
+                      <span className="text-sm text-ink-soft/60">Device IMSI</span>
+                      <span className="flex items-center gap-1.5 text-sm font-bold text-info">
                         {plan.deviceImsi}
-                        <Pencil size={14} className="text-brand-link" />
+                        <Pencil size={14} className="text-info" />
                       </span>
                     </div>
                     <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                      <span className="text-sm text-ink-700/60">First Event Date</span>
-                      <span className="text-sm font-bold text-ink-900">{plan.firstEventDate}</span>
+                      <span className="text-sm text-ink-soft/60">First Event Date</span>
+                      <span className="text-sm font-bold text-foreground">{plan.firstEventDate}</span>
                     </div>
 
                     <div className="flex items-center justify-between border-b border-black/5 pb-3">
-                      <span className="text-sm text-ink-700/60">Contact Role</span>
-                      <span className="text-sm font-bold text-ink-900">{plan.contactRole}</span>
+                      <span className="text-sm text-ink-soft/60">Contact Role</span>
+                      <span className="text-sm font-bold text-foreground">{plan.contactRole}</span>
                     </div>
                   </div>
                 </div>
@@ -301,7 +301,7 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
             )}
 
             <div className="flex flex-wrap items-center justify-between gap-3 px-5 py-4 sm:px-6">
-              <p className="text-sm text-ink-700/70">Email Pelanggan : {plan.email}</p>
+              <p className="text-sm text-ink-soft/70">Email Pelanggan : {plan.email}</p>
               <div className="flex items-center gap-4">
                 <span className="flex items-center gap-1.5 text-sm text-amber-600">
                   <AlertCircle size={14} />
@@ -314,7 +314,7 @@ export function PostpaidPlanDetailCard({ plan, msisdn }: PostpaidPlanDetailCardP
                 <button
                   type="button"
                   onClick={() => setExpanded((prev) => !prev)}
-                  className="flex items-center gap-1 text-sm font-semibold text-brand-link"
+                  className="flex items-center gap-1 text-sm font-semibold text-info"
                 >
                   Info Selengkapnya
                   <ChevronDown

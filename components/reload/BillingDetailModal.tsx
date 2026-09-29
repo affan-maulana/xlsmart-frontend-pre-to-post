@@ -37,18 +37,18 @@ export function BillingDetailModal({ isOpen, onClose, items, adminFee }: Billing
 
         {/* Header */}
         <div className="relative mt-3 flex items-center justify-center">
-          <h2 className="text-lg font-bold text-ink-900">Detil Tagihan</h2>
+          <h2 className="text-lg font-bold text-foreground">Detil Tagihan</h2>
           <button
             type="button"
             onClick={onClose}
-            className="absolute right-0 top-1/2 -translate-y-1/2 text-ink-900"
+            className="absolute right-0 top-1/2 -translate-y-1/2 text-foreground"
           >
             <X className="h-5 w-5" />
           </button>
         </div>
 
         {/* Table header */}
-        <div className="mt-6 grid grid-cols-[1fr_auto_auto] gap-x-4 text-sm font-bold text-ink-700/50">
+        <div className="mt-6 grid grid-cols-[1fr_auto_auto] gap-x-4 text-sm font-bold text-ink-soft/50">
           <p>Produk</p>
           <p className="text-center">Jumlah</p>
           <p className="text-right">Harga</p>
@@ -61,9 +61,9 @@ export function BillingDetailModal({ isOpen, onClose, items, adminFee }: Billing
               key={item.id}
               className="grid grid-cols-[1fr_auto_auto] items-center gap-x-4 border-b border-black/10 py-3"
             >
-              <p className="text-sm font-semibold text-ink-900">{item.name}</p>
-              <p className="text-center text-sm font-bold text-ink-900">{item.qty}</p>
-              <p className="text-right text-sm font-bold text-ink-900">
+              <p className="text-sm font-semibold text-foreground">{item.name}</p>
+              <p className="text-center text-sm font-bold text-foreground">{item.qty}</p>
+              <p className="text-right text-sm font-bold text-foreground">
                 {formatRupiah(item.price)}
               </p>
             </div>
@@ -71,25 +71,25 @@ export function BillingDetailModal({ isOpen, onClose, items, adminFee }: Billing
 
           {/* Total Produk */}
           <div className="grid grid-cols-[1fr_auto_auto] items-center gap-x-4 border-b border-black/10 py-3">
-            <p className="text-sm font-bold text-ink-700/60">Total Produk</p>
-            <p className="text-center text-sm font-bold text-ink-900">{totalProduk}</p>
-            <p className="text-right text-sm font-bold text-ink-900">
+            <p className="text-sm font-bold text-ink-soft/60">Total Produk</p>
+            <p className="text-center text-sm font-bold text-foreground">{totalProduk}</p>
+            <p className="text-right text-sm font-bold text-foreground">
               {formatRupiah(totalHargaProduk)}
             </p>
           </div>
 
           {/* Biaya Admin */}
           <div className="grid grid-cols-[1fr_auto_auto] items-center gap-x-4 border-b border-black/10 py-3">
-            <p className="text-sm font-bold text-ink-700/60">Biaya Admin</p>
+            <p className="text-sm font-bold text-ink-soft/60">Biaya Admin</p>
             <p />
-            <p className="text-right text-sm font-bold text-ink-900">{formatRupiah(adminFee)}</p>
+            <p className="text-right text-sm font-bold text-foreground">{formatRupiah(adminFee)}</p>
           </div>
 
           {/* Total Tagihan */}
           <div className="grid grid-cols-[1fr_auto_auto] items-center gap-x-4 py-3">
-            <p className="text-sm font-bold text-ink-700/60">Total Tagihan</p>
+            <p className="text-sm font-bold text-ink-soft/60">Total Tagihan</p>
             <p />
-            <p className="text-right text-sm font-extrabold text-brand-link">
+            <p className="text-right text-sm font-extrabold text-info">
               {formatRupiah(totalTagihan)}
             </p>
           </div>

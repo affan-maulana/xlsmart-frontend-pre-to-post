@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="id" className={inter.variable}>
       <body className="font-sans antialiased">
-        <div className="flex min-h-screen bg-[#F4F5F9]">
+        <div className="flex min-h-screen bg-background">
           <SideNavigation />
           <div className="flex min-w-0 flex-1 flex-col">
             <Header

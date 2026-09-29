@@ -18,13 +18,13 @@ export function formatCountdown(totalSeconds: number) {
 export function OrderSummaryBar({ fields }: { fields: OrderSummaryField[] }) {
   return (
     <div
-      className="mt-6 grid grid-cols-2 gap-6 rounded-2xl border border-black/10 bg-[#FAFAFB] p-5 sm:p-6"
+      className="mt-6 grid grid-cols-2 gap-6 rounded-2xl border border-black/10 bg-faint p-5 sm:p-6"
       style={{ gridTemplateColumns: `repeat(${Math.min(fields.length, 5)}, minmax(0, 1fr))` }}
     >
       {fields.map((field) => (
         <div key={field.label}>
-          <p className="text-sm text-ink-700/50">{field.label}</p>
-          <p className="mt-1 text-lg font-extrabold text-ink-900">{field.value}</p>
+          <p className="text-sm text-ink-soft/50">{field.label}</p>
+          <p className="mt-1 text-lg font-extrabold text-foreground">{field.value}</p>
         </div>
       ))}
     </div>
@@ -54,14 +54,14 @@ export function PaymentStatusActions({
       <button
         type="button"
         onClick={onGantiMetode}
-        className="min-w-[260px] whitespace-nowrap rounded-lg border-2 border-brand-indigo px-6 py-3 text-sm font-bold text-brand-indigo hover:bg-brand-indigo/5"
+        className="min-w-[260px] whitespace-nowrap rounded-lg border-2 border-primary px-6 py-3 text-sm font-bold text-primary hover:bg-primary/5"
       >
         Ganti Metode Pembayaran
       </button>
       <button
         type="button"
         onClick={onPrimaryAction}
-        className="min-w-[260px] whitespace-nowrap rounded-lg bg-brand-indigo px-6 py-3 text-sm font-bold text-white hover:bg-brand-indigo/90"
+        className="min-w-[260px] whitespace-nowrap rounded-lg bg-primary px-6 py-3 text-sm font-bold text-white hover:bg-primary/90"
       >
         {primaryLabel}
       </button>

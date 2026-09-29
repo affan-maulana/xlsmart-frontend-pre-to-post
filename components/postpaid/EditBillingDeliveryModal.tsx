@@ -69,13 +69,13 @@ export function EditBillingDeliveryModal({
       <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
         <div className="w-full max-w-md rounded-2xl bg-white p-6 shadow-xl">
           <div className="flex items-start justify-between">
-            <h4 className="w-full text-center text-lg font-bold text-ink-900">
+            <h4 className="w-full text-center text-lg font-bold text-foreground">
               Metode Pengiriman Tagihan
             </h4>
             <button
               type="button"
               onClick={onClose}
-              className="-mt-1 -mr-1 ml-2 rounded-full p-1 text-ink-900 hover:bg-black/5"
+              className="-mt-1 -mr-1 ml-2 rounded-full p-1 text-foreground hover:bg-black/5"
               aria-label="Tutup"
             >
               <X size={18} />
@@ -88,19 +88,19 @@ export function EditBillingDeliveryModal({
                 <Check size={28} strokeWidth={3} className="text-white" />
               </div>
             </div>
-            <p className="mt-4 text-base font-bold text-ink-900">
+            <p className="mt-4 text-base font-bold text-foreground">
               Metode Pengiriman Tagihan Berhasil diupdate
             </p>
-            <p className="mt-1 text-sm text-ink-700/60">
+            <p className="mt-1 text-sm text-ink-soft/60">
               {confirmedMethod === 'Email' ? (
                 <>
                   Metode Pengiriman Tagihan berhasil diupdate menjadi email{' '}
-                  <span className="font-semibold text-ink-900">{confirmedEmail}</span>
+                  <span className="font-semibold text-foreground">{confirmedEmail}</span>
                 </>
               ) : (
                 <>
                   Metode Pengiriman Tagihan berhasil diupdate menjadi{' '}
-                  <span className="font-semibold text-ink-900">Pos</span>
+                  <span className="font-semibold text-foreground">Pos</span>
                 </>
               )}
             </p>
@@ -109,7 +109,7 @@ export function EditBillingDeliveryModal({
           <button
             type="button"
             onClick={handleFinish}
-            className="mt-6 w-full rounded-lg bg-brand-indigo px-4 py-3 text-sm font-semibold text-white hover:bg-brand-indigo/90"
+            className="mt-6 w-full rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white hover:bg-primary/90"
           >
             Kembali
           </button>
@@ -122,36 +122,36 @@ export function EditBillingDeliveryModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 px-4">
       <div className="w-full max-w-2xl rounded-2xl bg-white p-6 shadow-xl">
         <div className="flex items-start justify-between">
-          <h4 className="w-full text-center text-lg font-bold text-ink-900">
+          <h4 className="w-full text-center text-lg font-bold text-foreground">
             Metode Pengiriman Tagihan
           </h4>
           <button
             type="button"
             onClick={onClose}
-            className="-mt-1 -mr-1 ml-2 rounded-full p-1 text-ink-900 hover:bg-black/5"
+            className="-mt-1 -mr-1 ml-2 rounded-full p-1 text-foreground hover:bg-black/5"
             aria-label="Tutup"
           >
             <X size={18} />
           </button>
         </div>
 
-        <p className="mt-4 text-base font-bold text-ink-900">Metode Pengiriman Tagihan</p>
+        <p className="mt-4 text-base font-bold text-foreground">Metode Pengiriman Tagihan</p>
 
         <div className="mt-4 rounded-xl border border-black/10 bg-black/[0.02] p-4">
           <div className="flex divide-x divide-black/10">
             <div className="flex-1 pr-4">
-              <p className="text-xs text-ink-700/50">MSISDN</p>
-              <p className="mt-1 text-sm font-bold text-ink-900">{msisdn}</p>
+              <p className="text-xs text-ink-soft/50">MSISDN</p>
+              <p className="mt-1 text-sm font-bold text-foreground">{msisdn}</p>
             </div>
             <div className="flex-1 pl-4">
-              <p className="text-xs text-ink-700/50">Email</p>
-              <p className="mt-1 text-sm font-bold text-ink-900">{email}</p>
+              <p className="text-xs text-ink-soft/50">Email</p>
+              <p className="mt-1 text-sm font-bold text-foreground">{email}</p>
             </div>
           </div>
         </div>
 
         <div className="mt-5">
-          <p className="mb-2 text-sm font-semibold text-ink-900">
+          <p className="mb-2 text-sm font-semibold text-foreground">
             Metode Pengiriman<span className="text-rose-500">*</span>
           </p>
           <div className="grid grid-cols-2 gap-3">
@@ -164,8 +164,8 @@ export function EditBillingDeliveryModal({
                   onClick={() => setSelectedMethod(option)}
                   className={`rounded-lg border-2 py-3 text-sm font-semibold transition-colors ${
                     isSelected
-                      ? 'border-brand-indigo bg-brand-indigo/5 text-ink-900'
-                      : 'border-black/10 text-ink-900 hover:border-black/20'
+                      ? 'border-primary bg-primary/5 text-foreground'
+                      : 'border-black/10 text-foreground hover:border-black/20'
                   }`}
                 >
                   {option}
@@ -177,7 +177,7 @@ export function EditBillingDeliveryModal({
 
         {selectedMethod === 'Email' && (
           <div className="mt-5">
-            <p className="mb-2 text-sm font-semibold text-ink-900">
+            <p className="mb-2 text-sm font-semibold text-foreground">
               Email Pelanggan<span className="text-rose-500">*</span>
             </p>
             <input
@@ -187,10 +187,10 @@ export function EditBillingDeliveryModal({
               onBlur={() => setEmailTouched(true)}
               placeholder="Email pelanggan"
               aria-invalid={showEmailError}
-              className={`w-full rounded-lg border px-3 py-2.5 text-sm font-semibold text-ink-900 focus:outline-none ${
+              className={`w-full rounded-lg border px-3 py-2.5 text-sm font-semibold text-foreground focus:outline-none ${
                 showEmailError
                   ? 'border-rose-400 focus:border-rose-400'
-                  : 'border-black/10 focus:border-brand-indigo'
+                  : 'border-black/10 focus:border-primary'
               }`}
             />
             {showEmailError && (
@@ -203,7 +203,7 @@ export function EditBillingDeliveryModal({
           type="button"
           disabled={!canSubmit}
           onClick={handleUpdate}
-          className="mt-6 w-full rounded-lg bg-brand-indigo px-4 py-3 text-sm font-semibold text-white transition-opacity hover:bg-brand-indigo/90 disabled:cursor-not-allowed disabled:opacity-40"
+          className="mt-6 w-full rounded-lg bg-primary px-4 py-3 text-sm font-semibold text-white transition-opacity hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-40"
         >
           Update
         </button>

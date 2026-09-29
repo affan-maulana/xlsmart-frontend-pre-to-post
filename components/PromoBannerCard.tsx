@@ -7,10 +7,10 @@ interface PromoBannerCardProps {
 
 /** Marketing banner used at the bottom of the profile page; supports two themes. */
 export function PromoBannerCard({ banner }: PromoBannerCardProps) {
-  const overlay = banner.theme === 'gradient' ? 'bg-brand-gradient/90' : 'bg-ink-900/70';
+  const overlay = banner.theme === 'gradient' ? 'bg-brand-gradient/90' : 'bg-foreground/70';
 
   return (
-    <div className="relative h-[140px] overflow-hidden rounded-card sm:h-[160px]">
+    <div className="relative h-[140px] overflow-hidden rounded-2xl sm:h-[160px]">
       <Image
         src={banner.imageUrl}
         alt={banner.highlight}

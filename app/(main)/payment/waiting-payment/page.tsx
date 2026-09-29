@@ -3,7 +3,7 @@
 import { Suspense, useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
-import { QueueBar } from '@/components/QueueBar';
+import { QueueBar } from '@/components/molecules/queue-bar';
 import { agentQueue, getVABankTabs, getCreditCardStatusSteps } from '@/lib/mockData';
 import {
   OrderSummaryBar,
@@ -14,7 +14,7 @@ import { VirtualAccountStatusCard } from '@/components/payment-type/VirtualAccou
 import { CreditCardStatusCard } from '@/components/payment-type/CreditCardStatusCard';
 import { QrisStatusCard } from '@/components/payment-type/QrisStatusCard';
 import type { OrderSummaryField, PaymentStatusVariant } from '@/lib/types';
-import { Breadcrumb } from '@/components/Breadcrumb';
+import { Breadcrumb } from '@/components/atoms/breadcrumb';
 
 function StatusPembayaranContent() {
   const router = useRouter();
@@ -70,7 +70,7 @@ function StatusPembayaranContent() {
     <main className="p-5 sm:p-6">
       <Breadcrumb trail={['Home', 'Isi Pulsa', 'Pembayaran']} />
 
-      <h1 className="mt-4 text-3xl font-extrabold text-ink-900">Pembayaran</h1>
+      <h1 className="mt-4 text-3xl font-extrabold text-foreground">Pembayaran</h1>
 
       <OrderSummaryBar fields={fields} />
 
@@ -123,7 +123,7 @@ function StatusPembayaranContent() {
 
 export default function StatusPembayaranPage() {
   return (
-    <div className="flex h-screen bg-[#F4F5F9]">
+    <div className="flex h-screen bg-muted">
       <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
         <QueueBar queue={agentQueue} />
         <Suspense fallback={null}>

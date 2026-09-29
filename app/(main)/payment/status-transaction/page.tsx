@@ -2,7 +2,7 @@
 
 import { Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { QueueBar } from '@/components/QueueBar';
+import { QueueBar } from '@/components/molecules/queue-bar';
 import { agentQueue } from '@/lib/mockData';
 import {
   InvoiceSentBanner,
@@ -69,7 +69,7 @@ function StatusTransaksiContent() {
           <button
             type="button"
             onClick={handleResendConsent}
-            className="rounded-lg border-2 border-brand-indigo px-4 py-2 text-sm font-bold text-brand-indigo hover:bg-brand-indigo/5"
+            className="rounded-lg border-2 border-primary px-4 py-2 text-sm font-bold text-primary hover:bg-primary/5"
           >
             Kirim Ulang e-Consent
           </button>
@@ -140,7 +140,7 @@ function StatusTransaksiContent() {
 
 export default function StatusTransaksiPage() {
   return (
-    <div className="flex h-screen bg-[#F4F5F9]">
+    <div className="flex h-screen bg-muted">
       <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
         <Suspense fallback={null}>
           <StatusTransaksiContent />

@@ -1,7 +1,7 @@
 import type { SubscriptionSummary } from '@/lib/types';
 import { AlertRow } from './AlertRow';
 import { billingAlert } from '@/lib/mockData';
-import { Card } from './ui/Card';
+import { Card } from './ui/card';
 
 type SummaryField = 'subscription' | 'mobile' | 'home' | 'billingPostpaid' | 'billingHome';
 
@@ -77,15 +77,15 @@ export function SubscriptionSummaryBar({
   const lgCols = lgColsByCount[stats.length] ?? 'lg:grid-cols-5';
 
   return (
-    <Card className="mt-4" padded={false}>
+    <Card className="mt-4">
       <div
         className={`grid grid-cols-2 gap-6 p-5 sm:p-6 lg:gap-0 lg:divide-x lg:divide-black/5 ${smCols} ${lgCols}`}
       >
         {stats.map((stat, index) => (
           <div key={stat.label} className={index === 0 ? '' : 'lg:px-6'}>
-            <p className="text-sm text-ink-700/60">{stat.label}</p>
-            <p className="mt-1 text-2xl font-bold text-ink-900">{stat.value}</p>
-            {stat.caption && <p className="mt-0.5 text-xs text-ink-700/50">{stat.caption}</p>}
+            <p className="text-sm text-ink-soft/60">{stat.label}</p>
+            <p className="mt-1 text-2xl font-bold text-foreground">{stat.value}</p>
+            {stat.caption && <p className="mt-0.5 text-xs text-ink-soft/50">{stat.caption}</p>}
           </div>
         ))}
       </div>

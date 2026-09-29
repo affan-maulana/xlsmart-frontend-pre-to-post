@@ -3,8 +3,10 @@
 import { useState } from 'react';
 import { AlertCircle, LayoutGrid } from 'lucide-react';
 import type { PhoneNumber } from '@/lib/types';
-import { ProviderIcon } from './ProviderIcon';
-import { AllNumbersModal } from './AllNumbersModal';
+import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
+import { ProviderIcon } from './provider-icon';
+import { AllNumbersModal } from './all-numbers-modal';
 
 interface PhoneNumberListProps {
   numbers: PhoneNumber[];
@@ -15,6 +17,11 @@ interface PhoneNumberListProps {
   onSelect?: (number: PhoneNumber) => void;
 }
 
+/**
+ * Horizontally scrollable list of the customer's registered numbers with
+ * selection, status markers and an "all numbers" dialog. Shared across
+ * profile, reload and pretopost flows.
+ */
 export function PhoneNumberList({
   numbers,
   totalCount,
@@ -26,7 +33,7 @@ export function PhoneNumberList({
   const showViewAll = numbers.length > 1;
   const [isAllNumbersOpen, setIsAllNumbersOpen] = useState(false);
 
-  // fallback: kalau belum ada selectedId, pilih nomor pertama yang bukan suspend/nonaktif
+  // Fallback: without an explicit selection, prefer the first active number.
   const effectiveSelectedId =
     selectedId ?? numbers.find((n) => n.status !== 'suspend' && n.status !== 'nonaktif')?.id;
 
@@ -36,13 +43,11 @@ export function PhoneNumberList({
   }
 
   return (
-    <section className="">
-      <h3 className="text-lg font-bold text-ink-900">
-        Nomor Pelanggan Terdaftar ({numbers.length})
-      </h3>
+    <section>
+      <h3 className="text-section-title">Nomor Pelanggan Terdaftar ({numbers.length})</h3>
 
       <div className="mt-4 flex items-center gap-3">
-        <div className="flex min-w-0 flex-1 gap-3 overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+        <div className="scrollbar-none flex min-w-0 flex-1 gap-3 overflow-x-auto pb-1">
           {numbers.map((number) => {
             const isSuspend = number.status === 'suspend';
             const isNonaktif = number.status === 'nonaktif';
@@ -53,31 +58,32 @@ export function PhoneNumberList({
                 key={number.id}
                 type="button"
                 onClick={() => onSelect?.(number)}
-                className={`inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-pill border-2 py-2.5 text-sm font-semibold transition-colors ${
-                  number.iconOnly ? 'px-2.5' : 'px-4'
-                } ${isSelected ? 'bg-white' : 'bg-[#FAFAFA]'} ${
+                aria-pressed={isSelected}
+                className={cn(
+                  'inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-pill border-2 py-2.5 text-sm font-semibold transition-colors',
+                  number.iconOnly ? 'px-2.5' : 'px-4',
                   isSelected
-                    ? 'border-brand-indigo bg-brand-indigo/5 text-brand-indigo'
+                    ? 'border-primary bg-primary/5 text-primary'
                     : isSuspend
-                      ? 'border-black/10 text-ink-700/40'
+                      ? 'border-border text-ink-soft/40'
                       : isNonaktif
-                        ? 'border-black/10 text-ink-700/70'
-                        : 'border-black/10 text-ink-700/80 hover:border-brand-indigo/40'
-                }`}
+                        ? 'border-border text-ink-soft/70'
+                        : 'border-border text-ink-soft/80 hover:border-primary/40'
+                )}
               >
                 <ProviderIcon number={number} />
 
                 {!number.iconOnly && <span>{number.msisdn}</span>}
 
                 {isSuspend && (
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-amber-500">
+                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-warning">
                     <AlertCircle size={14} />
                     Suspend
                   </span>
                 )}
 
                 {isNonaktif && (
-                  <span className="inline-flex items-center gap-1 rounded-pill bg-red-500 px-2 py-0.5 text-xs font-semibold text-white">
+                  <span className="inline-flex items-center gap-1 rounded-pill bg-destructive px-2 py-0.5 text-xs font-semibold text-destructive-foreground">
                     <AlertCircle size={12} />
                     Nonaktif
                   </span>
@@ -88,24 +94,28 @@ export function PhoneNumberList({
         </div>
 
         {showViewAll && (
-          <button
+          <Button
             type="button"
+            variant="outline"
+            className="border-2 shrink-0"
             onClick={handleViewAll}
-            className="inline-flex shrink-0 items-center gap-2 rounded-lg border-2 border-brand-indigo px-4 py-2.5 text-sm font-bold text-brand-indigo"
           >
-            <LayoutGrid size={16} />
+            <LayoutGrid />
             Lihat Semua {totalCount}
-          </button>
+          </Button>
         )}
       </div>
 
-      {isAllNumbersOpen && (
-        <AllNumbersModal
-          customerName={customerName}
-          numbers={numbers}
-          onClose={() => setIsAllNumbersOpen(false)}
-        />
-      )}
+      <AllNumbersModal
+        open={isAllNumbersOpen}
+        onOpenChange={setIsAllNumbersOpen}
+        customerName={customerName}
+        numbers={numbers}
+        onSelectNumber={(number) => {
+          onSelect?.(number);
+          setIsAllNumbersOpen(false);
+        }}
+      />
     </section>
   );
 }

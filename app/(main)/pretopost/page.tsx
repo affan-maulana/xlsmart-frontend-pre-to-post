@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { QueueBar } from '@/components/QueueBar';
-import { Breadcrumb } from '@/components/Breadcrumb';
-import { PhoneNumberList } from '@/components/nomorpelanggan/PhoneNumberList';
-import { MandatoryInfoPanel } from '@/components/reload/MandatoryInfoPanel';
-import { ServicePlaybookPanel } from '@/components/reload/ServicePlaybookPanel';
+import { QueueBar } from '@/components/molecules/queue-bar';
+import { Breadcrumb } from '@/components/atoms/breadcrumb';
+import { InfoBlock } from '@/components/molecules/info-block';
+import { PhoneNumberList } from '@/components/organisms/phone-number-list';
+import { MandatoryInfoPanel } from '@/components/organisms/mandatory-info-panel';
+import { ServicePlaybookPanel } from '@/components/organisms/service-playbook-panel';
 import {
   agentQueue,
   customerProfile,
@@ -18,7 +19,7 @@ import {
   packageCategories,
 } from '@/lib/mockData';
 import type { PhoneNumber, PostpaidPackageOption } from '@/lib/types';
-import { PostpaidPackages } from './_components/PostpaidPackages';
+import { PostpaidPackages } from './_components/postpaid-packages';
 import { usePretopostSubmit } from './_hook/usePretopostSubmit';
 
 function formatRupiah(amount: number) {
@@ -51,14 +52,14 @@ export default function IsiPulsaPage() {
   }
 
   return (
-    <div className="flex h-screen bg-white">
+    <div className="flex h-screen bg-card">
       <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
         <QueueBar queue={agentQueue} />
 
         <main className="p-5 sm:p-6">
           <Breadcrumb trail={['Home', 'Prepaid to Postpaid']} />
 
-          <h1 className="mt-4 text-3xl font-extrabold text-ink-900">Prepaid to Postpaid</h1>
+          <h1 className="text-display mt-4">Prepaid to Postpaid</h1>
 
           <div className="mt-6">
             <PhoneNumberList
@@ -70,30 +71,34 @@ export default function IsiPulsaPage() {
             />
           </div>
 
-          <div className="mt-4 grid grid-cols-1 divide-y rounded-lg border border-black/10 bg-[#F4F5F9] p-6 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
-            <div className="space-y-1 py-4 lg:px-6 lg:py-0">
-              <p className="text-sm text-ink-700/60">MSISDN</p>
-              <p className="text-xl font-bold text-ink-900">{pre2postPlanSummary.msisdn}</p>
-              <p className="text-xs text-ink-700/50">{pre2postPlanSummary.email}</p>
-            </div>
-            <div className="space-y-1 py-4 lg:px-6 lg:py-0">
-              <p className="text-sm text-ink-700/60">Service Plan</p>
-              <p className="text-xl font-bold text-ink-900">{pre2postPlanSummary.servicePlan}</p>
-            </div>
-            <div className="space-y-1 py-4 lg:px-6 lg:py-0">
-              <p className="text-sm text-ink-700/60">Mobile Balance</p>
-              <p className="text-xl font-bold text-ink-900">
-                {formatRupiah(pre2postPlanSummary.mobileBalance)}
-              </p>
-            </div>
+          <div className="mt-6 grid grid-cols-1 divide-y divide-border rounded-2xl border border-border bg-muted p-6 lg:grid-cols-3 lg:divide-x lg:divide-y-0">
+            <InfoBlock
+              className="py-4 lg:px-6 lg:py-0"
+              label="MSISDN"
+              value={pre2postPlanSummary.msisdn}
+              hint={pre2postPlanSummary.email}
+              valueClassName="text-xl"
+            />
+            <InfoBlock
+              className="py-4 lg:px-6 lg:py-0"
+              label="Service Plan"
+              value={pre2postPlanSummary.servicePlan}
+              valueClassName="text-xl"
+            />
+            <InfoBlock
+              className="py-4 lg:px-6 lg:py-0"
+              label="Mobile Balance"
+              value={formatRupiah(pre2postPlanSummary.mobileBalance)}
+              valueClassName="text-xl"
+            />
           </div>
 
-          <h2 className="mt-6 text-lg font-bold text-ink-900">
+          <h2 className="text-section-title mt-6">
             Lengkapi Informasi Perubahan Prepaid ke Postpaid
           </h2>
 
           {error && (
-            <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+            <div className="mt-4 rounded-lg border border-destructive/20 bg-destructive-subtle p-4 text-sm text-destructive">
               {error}
             </div>
           )}

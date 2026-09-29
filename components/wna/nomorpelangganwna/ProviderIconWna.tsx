@@ -11,8 +11,8 @@ type ProviderStyle = {
 };
 
 const fallbackProviderStyle: Record<string, ProviderStyle> = {
-  xl: { iconBg: 'bg-brand-indigo/10', iconText: 'text-brand-indigo', label: '' },
-  axis: { iconBg: 'bg-black/5', iconText: 'text-ink-700/60', label: '' },
+  xl: { iconBg: 'bg-primary/10', iconText: 'text-primary', label: '' },
+  axis: { iconBg: 'bg-black/5', iconText: 'text-ink-soft/60', label: '' },
   smartfren: { iconBg: 'bg-pink-50', iconText: 'text-pink-600', label: 'sf' },
   other: { iconBg: 'bg-purple-100', iconText: 'text-purple-600', label: '' },
 };

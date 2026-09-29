@@ -86,11 +86,11 @@ export function PaketUtamaModal({
         {/* Header */}
         <div className="flex items-center justify-between border-b border-black/5 px-6 py-5">
           <div className="w-8" />
-          <h2 className="text-lg font-bold text-ink-900">Paket Utama</h2>
+          <h2 className="text-lg font-bold text-foreground">Paket Utama</h2>
           <button
             type="button"
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-full bg-ink-900 text-white"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-foreground text-white"
           >
             <X className="h-4 w-4" />
           </button>
@@ -98,11 +98,11 @@ export function PaketUtamaModal({
 
         <div className="flex-1 overflow-y-auto px-6 py-5">
           <div className="flex items-center justify-between">
-            <h3 className="text-xl font-extrabold text-ink-900">Pilih Paket</h3>
+            <h3 className="text-xl font-extrabold text-foreground">Pilih Paket</h3>
             <button
               type="button"
               onClick={resetFilter}
-              className="text-sm font-bold text-brand-link"
+              className="text-sm font-bold text-info"
             >
               Reset Filter
             </button>
@@ -117,9 +117,9 @@ export function PaketUtamaModal({
                 setPage(1);
               }}
               placeholder="Cari Nama Paket, Kuota Paket, Masa Berlaku Paket"
-              className="w-full rounded-full border border-black/10 px-5 py-3 pr-12 text-sm outline-none focus:border-brand-indigo/40"
+              className="w-full rounded-full border border-black/10 px-5 py-3 pr-12 text-sm outline-none focus:border-primary/40"
             />
-            <Search className="absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-link" />
+            <Search className="absolute right-4 top-1/2 h-4 w-4 -translate-y-1/2 text-info" />
           </div>
 
           {/* Tabs + filters */}
@@ -140,8 +140,8 @@ export function PaketUtamaModal({
                 }}
                 className={`rounded-full border px-4 py-2 text-sm font-semibold ${
                   category === tab.value
-                    ? 'border-brand-indigo text-brand-indigo'
-                    : 'border-transparent bg-ink-50 text-ink-700/70'
+                    ? 'border-primary text-primary'
+                    : 'border-transparent bg-ink-50 text-ink-soft/70'
                 }`}
               >
                 {tab.label}
@@ -152,7 +152,7 @@ export function PaketUtamaModal({
               <select
                 value={tipePembayaran ?? ''}
                 onChange={(e) => setTipePembayaran(e.target.value || null)}
-                className="appearance-none rounded-full border border-black/10 px-4 py-2 pr-9 text-sm text-ink-700/70 outline-none"
+                className="appearance-none rounded-full border border-black/10 px-4 py-2 pr-9 text-sm text-ink-soft/70 outline-none"
               >
                 <option value="">Tipe Pembayaran</option>
                 {tipePembayaranOptions.map((opt) => (
@@ -161,7 +161,7 @@ export function PaketUtamaModal({
                   </option>
                 ))}
               </select>
-              <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-indigo" />
+              <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
             </div>
 
             <div className="relative">
@@ -171,7 +171,7 @@ export function PaketUtamaModal({
                   setMasaBerlangganan(e.target.value || null);
                   setPage(1);
                 }}
-                className="appearance-none rounded-full border border-black/10 px-4 py-2 pr-9 text-sm text-ink-700/70 outline-none"
+                className="appearance-none rounded-full border border-black/10 px-4 py-2 pr-9 text-sm text-ink-soft/70 outline-none"
               >
                 <option value="">Masa Berlangganan</option>
                 {masaBerlanggananOptions.map((opt) => (
@@ -180,7 +180,7 @@ export function PaketUtamaModal({
                   </option>
                 ))}
               </select>
-              <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-brand-indigo" />
+              <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary" />
             </div>
           </div>
 
@@ -198,13 +198,13 @@ export function PaketUtamaModal({
                   className={`relative flex flex-col rounded-xl border p-4 pt-5 text-left transition-colors ${
                     isSelected
                       ? 'border-transparent'
-                      : 'border-black/10 hover:border-brand-indigo/40'
+                      : 'border-black/10 hover:border-primary/40'
                   }`}
                   style={
                     isSelected
                       ? {
                           backgroundImage:
-                            'linear-gradient(white, white), linear-gradient(0deg, #1E22AA 0%, #E5005A 100%)',
+                            'linear-gradient(white, white), var(--gradient-brand)',
                           backgroundOrigin: 'border-box',
                           backgroundClip: 'padding-box, border-box',
                         }
@@ -231,21 +231,21 @@ export function PaketUtamaModal({
                     {logoSrc && (
                       <img src={logoSrc} alt={paket.provider} className="h-4 w-4 object-contain" />
                     )}
-                    <p className="text-xs font-semibold text-ink-700/60">• {paket.planName}</p>
+                    <p className="text-xs font-semibold text-ink-soft/60">• {paket.planName}</p>
                   </div>
 
-                  <p className="mt-1 text-2xl font-extrabold text-ink-900">{paket.quotaLabel}</p>
-                  <p className="mt-0.5 text-xs text-ink-700/50">
+                  <p className="mt-1 text-2xl font-extrabold text-foreground">{paket.quotaLabel}</p>
+                  <p className="mt-0.5 text-xs text-ink-soft/50">
                     {paket.durationLabel} • {paket.locationLabel}
                   </p>
 
                   <div className="mt-3 border-t border-black/5 pt-3">
                     {paket.originalPrice && (
-                      <p className="text-xs text-ink-700/40 line-through">
+                      <p className="text-xs text-ink-soft/40 line-through">
                         {formatRupiah(paket.originalPrice)}
                       </p>
                     )}
-                    <p className="text-sm font-bold text-brand-link">{formatRupiah(paket.price)}</p>
+                    <p className="text-sm font-bold text-info">{formatRupiah(paket.price)}</p>
                   </div>
                 </button>
               );
@@ -253,7 +253,7 @@ export function PaketUtamaModal({
           </div>
 
           {filtered.length === 0 && (
-            <p className="mt-8 text-center text-sm text-ink-700/50">Paket tidak ditemukan.</p>
+            <p className="mt-8 text-center text-sm text-ink-soft/50">Paket tidak ditemukan.</p>
           )}
 
           {/* Pagination */}
@@ -263,7 +263,7 @@ export function PaketUtamaModal({
                 type="button"
                 disabled={page === 1}
                 onClick={() => setPage((p) => Math.max(1, p - 1))}
-                className="flex h-8 w-8 items-center justify-center rounded-full text-ink-700/50 disabled:opacity-30"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-ink-soft/50 disabled:opacity-30"
               >
                 <ChevronLeft className="h-4 w-4" />
               </button>
@@ -274,7 +274,7 @@ export function PaketUtamaModal({
                   type="button"
                   onClick={() => setPage(n)}
                   className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-semibold ${
-                    page === n ? 'bg-brand-indigo/10 text-brand-indigo' : 'text-ink-700/60'
+                    page === n ? 'bg-primary/10 text-primary' : 'text-ink-soft/60'
                   }`}
                 >
                   {n}
@@ -285,7 +285,7 @@ export function PaketUtamaModal({
                 type="button"
                 disabled={page === totalPages}
                 onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-                className="flex h-8 w-8 items-center justify-center rounded-full text-ink-700/50 disabled:opacity-30"
+                className="flex h-8 w-8 items-center justify-center rounded-full text-ink-soft/50 disabled:opacity-30"
               >
                 <ChevronRight className="h-4 w-4" />
               </button>
@@ -299,7 +299,7 @@ export function PaketUtamaModal({
             type="button"
             disabled={!selectedId}
             onClick={handlePilihPaket}
-            className="w-full rounded-lg bg-brand-indigo px-4 py-3 text-sm font-bold text-white disabled:opacity-40"
+            className="w-full rounded-lg bg-primary px-4 py-3 text-sm font-bold text-white disabled:opacity-40"
           >
             Pilih Paket
           </button>

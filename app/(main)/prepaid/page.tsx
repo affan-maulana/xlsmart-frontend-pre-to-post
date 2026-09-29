@@ -1,4 +1,4 @@
-import { QueueBar } from '@/components/QueueBar';
+import { QueueBar } from '@/components/molecules/queue-bar';
 import { PlanDetailCard } from '@/components/PlanDetailCard';
 import { MetricPanel } from '@/components/MetricPanel';
 import { TransactionHistoryRow } from '@/components/TransactionHistoryRow';
@@ -20,7 +20,7 @@ import {
 
 export default function CustomerProfilePage() {
   return (
-    <div className="flex h-screen bg-[#F4F5F9]">
+    <div className="flex h-screen bg-muted">
       <div className="flex min-w-0 flex-1 flex-col overflow-y-auto">
         <QueueBar queue={agentQueue} />
 
